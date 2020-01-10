@@ -1,6 +1,6 @@
 <div class="bg-info">
 	<div class="d-print-none text-center mt-4"><small>
-<!--			<?//= $okos;?></small></div> -->
+			<?= 'nagy bölcsességek lelőhelye :$okos';?></small></div>
 	<div class="d-print-none p-4 text-right">
 		<code class="text text-dark">Az oldal elkészült
 			<strong>{elapsed_time}</strong> másodperc alatt.

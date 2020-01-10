@@ -10,7 +10,7 @@ return [
         'karszBes'      => 'Besorolás',
         'karszProg'     => 'Programrész',
         'karszMegj'     => 'Megjegyzés',
-        'karszBelep'    => 'Beléptetve',
+        'karszBelep'    => 'Beléptetés',
         'karszBeleptet' => 'Eddigi belépő(k)',
 ];
 ?>

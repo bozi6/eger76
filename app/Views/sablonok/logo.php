@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <div class="container pt-4  bg-info">
   <div class="shadow d-print-none row bg-dark text-light p-2">
     <div class="col-sm-2">
@@ -10,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="col-sm-10">
       <h4>
-        <?=$this->lang->line("cim");?>
+        <?= lang("Logo.logoCim");?>
       </h4>
     </div>
   </div>
@@ -33,8 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="row p-3">
     <div class="col-sm-12 text-center text-light">
       <h3 class="text-light">
-        <?php echo $cim;?>
+        <?= lang("Logo.logoHomepage");?>
       </h3>
     </div>
   </div>
-  <?php echo $menu;?>
+  <?php echo 'menü hűlt helye $menu';?>

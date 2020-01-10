@@ -52,7 +52,7 @@
 </div>
 <div class="form-row">
   <div class="col-sm-offset-4 col-sm-8">
-    <button type="submit" id="egybelep" class="btn btn-success" disabled="disabled"><?=lang('Karszalag.karszBeleptet');?></button>
+    <button type="submit" id="egybelep" class="btn btn-success" disabled="disabled"><?=lang('Karszalag.karszBelep');?></button>
 	<?= lang('Karszalag.karszBeleptet').' '.$stat['benne'];?>
   </div>
 </div>
