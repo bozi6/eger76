@@ -10,8 +10,10 @@ class Kezd extends BaseController
         ];
         $locale = service('request')->getLocale();
         helper('form');
-        $session = session();
-		echo view('sablonok/header.php');
+
+	$this->session->set('site_lang','hu');
+//	d($this->session);	// debuggolja a változót és továbbengedi a programot a dd pedig megöki ott ahol kell.
+    	echo view('sablonok/header.php');
         echo view('/kezd/karszalag',$data);
         echo view('sablonok/footer.php');
 	}
