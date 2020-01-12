@@ -4,7 +4,7 @@ return [
         'karszBelnev'   => 'اسم المشارك / الشركة',
         'karszHkarsz'   => 'كم من شارات الذراع التي تأخذها',
         'karszsz'       => 'عدد من شارات',
-        'karszGykarsz'  => 'Gyermek karszalag',
+        'karszGykarsz'  => 'قطاع الاطفال',
         'karszSzido'    => 'تاريخ الميلاد',
         'karszTnev'     => 'اسم الشركة',
         'karszBes'      => 'تصنيف',

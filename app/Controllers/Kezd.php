@@ -6,17 +6,21 @@ class Kezd extends BaseController
 {
     /*
      * A Kezd Controller konstructora
-     *  Ellenőrzi a session nyelv változót ha nincs akkor magyar lesz az oldal.
+     * Ellenőrzi a session nyelv változót ha nincs akkor magyar lesz az oldal.
+     * 
+     * @return null
      */
     public function __construct()
     {
-        $session = \Config\Services::session();
-        if(! $session->get('site_lang'));
+	$session = \Config\Services::session();
+/*        
+	if(! $session->get('site_lang'));
         {
             $session->set('site_lang','hu');
-        }
+        }*/
     }
     /**
+     * 
      * Kezdőoldal megjelenítése + ha nyelvet választunk akkor az is.
      * 
      * @ return null
@@ -50,9 +54,8 @@ class Kezd extends BaseController
     public function ls($mi)
     {
         $_SESSION['site_lang'] = $mi;
-        dd($_SERVER['HTTP_REFERER']);
-        redirect($_SERVER['HTTP_REFERER']);
-        //$this->index();
+        $honnan = $this->request->getServer('HTTP_REFERER');
+        return redirect()->to($honnan);
     }
 
     /**
