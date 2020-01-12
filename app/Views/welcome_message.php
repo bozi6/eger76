@@ -110,7 +110,7 @@
 			<div class="guide">
 				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
-				<p>If you would like to edit this page you'll find it located at:</p>
+				<p>If you would like to edit this page you will find it located at:</p>
 
 				<pre>
 				<code>

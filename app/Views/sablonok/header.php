@@ -7,23 +7,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/vendor/twbs/bootstrap/dist/css/bootstrap.css');?>">
 <?php
-
-d(APPPATH);
-d(ROOTPATH);
-d(SYSTEMPATH);
-d(FCPATH);
-d(WRITEPATH);
-d(SECOND);
-d(MINUTE);
-d(HOUR);
-d(DAY);
-d(WEEK);
-d(MONTH);
-d(YEAR);
-d(DECADE);
-
-d(session());
-if (session('site_lang') == 'arabic'){
+if ($nyelv == 'ar'){
   echo '<link rel="stylesheet" href="'.base_url('/css/bootstrap-rtl.css').'">';
 }
 ?>
@@ -33,7 +17,7 @@ if (session('site_lang') == 'arabic'){
     <link rel="stylesheet" media="screen" type="text/css" href="<?php echo base_url('/vendor/mottie/tablesorter/dist/css/theme.metro-dark.min.css');?>">
     <link rel="stylesheet" media="print" type="text/css" href="<?php echo base_url('/css/media.css');?>">
 <title>
-<?= lang("Kezd.kezdTitle"); ?>
+<?= lang("Kezd.kezdTitle",[],$nyelv); ?>
 </title>
 </head>
 <body class="bg-info text-light rtl">

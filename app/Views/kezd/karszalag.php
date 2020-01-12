@@ -6,8 +6,8 @@
 <?php echo form_hidden('sorsz','sorsz'); ?>
 <div class="form-row">
   <div class="form-group col-md-4">
-    <?php echo form_label(lang('Karszalag.karszNev'),'title',$labeldata);?>
-    <input type="text" name="nev" class="form-control" id="title" placeholder="<?=lang('Karszalag.karszBelnev')?>">
+    <?php echo form_label(lang('Karszalag.karszNev',[],$nyelv),'title',$labeldata);?>
+    <input type="text" name="nev" class="form-control" id="title" placeholder="<?=lang('Karszalag.karszBelnev',[],$nyelv)?>">
   </div>
   <div class="form-group col-md-4">
     <?php echo form_label(lang('Karszalag.karszHkarsz'),'karsz',$labeldata);?>
