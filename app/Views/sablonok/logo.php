@@ -30,8 +30,8 @@
   <div class="row p-3">
     <div class="col-sm-12 text-center text-light">
       <h3 class="text-light">
-        <?= lang("Logo.logoHomepage");?>
+        <?= $cim ;?>
       </h3>
     </div>
   </div>
-  <?php echo 'menü hűlt helye $menu';?>
+  <?php echo $menu;?>
