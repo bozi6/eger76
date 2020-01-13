@@ -121,11 +121,12 @@ class Kezd extends BaseController
         $data =
             [
                 'menu' => $menu->show_menu(4),
-                'mind'  => $model->getMind(),
-                'stat' => ['benne' => 'nagyon'],
+                'belepettek' => $model->belCount(),
+                'mindenki' => $model->mindCount(),
                 'cim' => lang('Stat.statHomepage'),
                 'nyelv' => $_SESSION['site_lang'],
                 'okos'  => $this->okos(),
+                'nembe' => $model->mindCount() - $model->belCount(),
             ];
         echo view('sablonok/header.php',$data);
         echo view('sablonok/logo.php',$data);

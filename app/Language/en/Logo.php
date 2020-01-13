@@ -1,6 +1,6 @@
 <?php
 return [
-'logoCim'     =>   'Dance House Meeting 2020',
+'logoCim'     	=> 'Dance House Meeting and Fair 2020',
 'logoHomepage'  => 'Homepage.',
 ];
 ?>

@@ -2,8 +2,6 @@
     <div class="m-lg-5">
          Ez a kiaz oldal.
     </div>
-    név megjegyzés mikor cég
-
         <table class="table table-bordered table-hover bg-light">
             <thead class="bg-primary">
                 <tr>
@@ -28,4 +26,3 @@
             </tbody>
         </table>
 </div>
-    <?= $kik[0]->ceg ?>

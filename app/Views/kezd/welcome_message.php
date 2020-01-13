@@ -4,10 +4,7 @@
 		<title>Welcome to CodeIgniter</title>
 
 		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-	</head>
-	<body>
-
-		<style {csp-style-nonce}>
+			<style {csp-style-nonce}>
 			div.logo {
 				height: 200px;
 				width: 155px;
@@ -81,6 +78,10 @@
 				color: #dd4814;
 			}
 		</style>
+	</head>
+	<body>
+
+	
 
 		<div class="wrap">
 

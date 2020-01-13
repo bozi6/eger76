@@ -4,6 +4,7 @@
   $inputdata = array( 'class'=> 'form-control border-0 bg-info ','readonly' =>''); ?>
 <?php echo form_open('karszalag/belepes',$formdata);?>
 <?php echo form_hidden('sorsz','sorsz'); ?>
+<form>
 <div class="form-row">
   <div class="form-group col-md-4">
     <?php echo form_label(lang('Karszalag.karszNev',[],$nyelv),'title',$labeldata);?>

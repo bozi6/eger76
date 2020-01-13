@@ -2,12 +2,7 @@
 <html>
 	<head>
 		<title>Welcome to CodeIgniter</title>
-
-		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-	</head>
-	<body>
-
-		<style {csp-style-nonce}>
+<style {csp-style-nonce}>
 			div.logo {
 				height: 200px;
 				width: 155px;
@@ -82,6 +77,11 @@
 			}
 		</style>
 
+		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+	</head>
+	<body>
+
+		
 		<div class="wrap">
 
 			<div class="logo">

@@ -4,8 +4,8 @@ use CodeIgniter\Model;
 
 class KarModell extends Model
 {
-        protected $table = 'karszalagok';
-
+        protected $table = 'belepettek';
+ 
     /**
      * Minden bejegyzés megjelenítése.
      * 
@@ -19,7 +19,7 @@ class KarModell extends Model
     }
 
     /**
-     * @return belepett emberkek
+     * @return $query belepett emberkek
      * A belepett embereket listázza ki.
      */
     public function getKik()
@@ -29,16 +29,21 @@ class KarModell extends Model
     }
 
     /**
-     * @return data visszaadása
+     * @return $bel statisztikak visszaadása
      */
-    public function stat()
+    public function belCount()
     {
-        $query = $this->query('SELECT count(*) FROM belepettek');
-        $data =
-            [
-            'belepett' => $query->getResult(),
-            ];
-        return $data;
+        $bel = $this->db->table('belepettek')->countAll();
+        return $bel;
+    }
+    
+    /**
+     * @return $bel statisztikak visszaadása
+     */
+    public function mindCount()
+    {
+        $bel = $this->db->table('mindenki')->countAll();
+        return $bel;
     }
 
 }
