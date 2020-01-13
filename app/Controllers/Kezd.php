@@ -71,6 +71,7 @@ class Kezd extends BaseController
      */
     public function kiaz()
     {
+        helper('form');
         $model = new karModell();
         $menu = new karszMenu();
         $data =
@@ -136,5 +137,34 @@ class Kezd extends BaseController
         echo view('sablonok/footer.php',$data);
 
     }
+
+    /**
+     * eddig.php ben az eddig belépett tagok listázása
+     * @return void
+     */
+
+    public function getEddig()
+    {
+        $request = \Config\Services::request();
+        $model = new karModell();
+        $nev =  $request->getVar('nev');
+        $result = $model->get_belepok($nev);
+
+        if (count($result) > 0) {
+            $i = 1;
+            foreach ($result as $row) {
+                $arr_result[] = array(
+                    'id' => $i,
+                    'nev' =>$row->nev,
+                    'ceg' => $row->ceg,
+                    'belepett' =>$row->miko,
+                    'megjegyzes' => $row->megjegyzes,
+                );
+                $i++;
+            }
+            echo json_encode($arr_result);
+        }
+    }
+
     //--------------------------------------------------------------------
 }    

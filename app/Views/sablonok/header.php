@@ -13,7 +13,7 @@ if ($nyelv == 'ar'){
 ?>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/vendor/components/jqueryui/themes/base/jquery-ui.css');?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/css/sajat.css');?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/Font-Awesome/css/all.css');?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('/css/Font-Awesome/css/all.css');?>">
     <link rel="stylesheet" media="screen" type="text/css" href="<?php echo base_url('/vendor/mottie/tablesorter/dist/css/theme.metro-dark.min.css');?>">
     <link rel="stylesheet" media="print" type="text/css" href="<?php echo base_url('/css/media.css');?>">
 <title>

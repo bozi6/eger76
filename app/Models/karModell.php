@@ -53,4 +53,18 @@ class KarModell extends Model
         return $bel;
     }
 
+    /**
+     * a már belépettek között keresgél név szerint
+     *
+     * @param  string $mi a belepo neve
+     * @return  array Visszaadja a belepett nepeket
+     */
+    public function get_belepok($mi)
+    {
+        $builder = $this->db->table('belepettek')
+        ->like('nev', $mi)
+        ->orderBy('nev');
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }
