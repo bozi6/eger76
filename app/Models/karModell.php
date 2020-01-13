@@ -18,10 +18,27 @@ class KarModell extends Model
         return $sor;
     }
 
+    /**
+     * @return belepett emberkek
+     * A belepett embereket listázza ki.
+     */
     public function getKik()
     {
         $query = $this->query('SELECT * FROM belepettek');
         return $query->getResult();
+    }
+
+    /**
+     * @return data visszaadása
+     */
+    public function stat()
+    {
+        $query = $this->query('SELECT count(*) FROM belepettek');
+        $data =
+            [
+            'belepett' => $query->getResult(),
+            ];
+        return $data;
     }
 
 }

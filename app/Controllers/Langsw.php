@@ -10,8 +10,8 @@ class Langsw extends Controller
     */
     function swl($lang)
     {
-        $session = \Config\Services::Session();
-	$lang = ($lang != "") ? $lang : "hu";
+    $session = \Config\Services::Session();
+	//$lang = ($lang != "") ? $lang : "hu";
 	$session->set('site_lang',$lang);
 	    return redirect()->to($_SERVER['HTTP_REFERER']);
     }

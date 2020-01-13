@@ -12,12 +12,7 @@ class Kezd extends BaseController
      */
     public function __construct()
     {
-	$session = \Config\Services::session();
-/*        
-	if(! $session->get('site_lang'));
-        {
-            $session->set('site_lang','hu');
-        }*/
+    	$session = \Config\Services::session();
     }
     /**
      * 
