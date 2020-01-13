@@ -127,7 +127,9 @@ class Kezd extends BaseController
                 'nyelv' => $_SESSION['site_lang'],
                 'okos'  => $this->okos(),
                 'nembe' => $model->mindCount() - $model->belCount(),
+                'cegek' => $model->getEgyKik(),
             ];
+            d($data);
         echo view('sablonok/header.php',$data);
         echo view('sablonok/logo.php',$data);
         echo view('/kezd/stat', $data);

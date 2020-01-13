@@ -27,6 +27,13 @@ class KarModell extends Model
         $query = $this->query('SELECT * FROM belepettek');
         return $query->getResult();
     }
+    
+    public function getEgyKik()
+    {
+       $builder = $this->db->table('belepettek')->select();
+       $query = $builder->get();
+       return $query->getResult();
+    }
 
     /**
      * @return $bel statisztikak visszaadása
