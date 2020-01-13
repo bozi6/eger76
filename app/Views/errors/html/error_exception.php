@@ -84,7 +84,7 @@
 									<?php $args_id = $error_id . 'args' . $index ?>
 									( <a href="#" onclick="return toggle('<?= $args_id ?>');">arguments</a> )
 									<div class="args" id="<?= $args_id ?>">
-										<table cellspacing="0">
+										<table >
 
 										<?php
 										$params = null;
