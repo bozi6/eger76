@@ -11,6 +11,6 @@ return [
         'karszProg'     => 'Show name',
         'karszMegj'     => 'Comment',
         'karszBelep'    => 'Enter',
-        'karszBeleptet' => 'Already entered',
+        'karszBeleptet' => 'Already entered {0, number} pers.',
 ];
 ?>

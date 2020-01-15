@@ -11,6 +11,6 @@ return [
         'karszProg'     => 'Programrész',
         'karszMegj'     => 'Megjegyzés',
         'karszBelep'    => 'Beléptetés',
-        'karszBeleptet' => 'Eddigi belépő(k)',
+        "karszBeleptet" => "Eddigi belépett: {0, number} fő",
 ];
 ?>

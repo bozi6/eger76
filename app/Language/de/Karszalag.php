@@ -11,6 +11,6 @@ return [
         'karszProg'     => 'Programme',
         'karszMegj'     => 'Bemerkung',
         'karszBelep'    => 'Eintrag',
-        'karszBeleptet' => 'Bisher eingeloggt',
+        'karszBeleptet' => 'Bisher eingeloggt {0, number} pers.',
 ];
 ?>

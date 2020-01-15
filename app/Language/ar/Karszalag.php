@@ -11,6 +11,6 @@ return [
         'karszProg'     => 'البرنامج الفرعي',
         'karszMegj'     => 'التعليق',
         'karszBelep'    => 'دخول',
-        'karszBeleptet' => 'ل',
+        'karszBeleptet' => '{0, number} ل',
 ];
 ?>

@@ -30,8 +30,7 @@ class Kezd extends BaseController
         $data =
             [
                 'menu' => $menu->show_menu(1),
-                'mind' => $model->getMind(),
-                'stat' => ['benne' => 'nagyon'],
+                'stat' => $model->belCount(),
                 'cim' => lang('Kezd.kezdHomepage'),
                 'nyelv' => $_SESSION['site_lang'],
                 'okos' => $this->okos(),
@@ -127,6 +126,9 @@ class Kezd extends BaseController
      * @return null
      */
     //TODO Kiegészíteni mindenféle érdekességekkel.
+    /** TODO a statisztikakanak egy külön táblát csinálni view be amiben benne van az összes emberke,
+     * TODO  az össes belépett , a hátralévő belépők a jegyek száma ( felnőtt/gyerek) meg a karszalag szinek szerinti hülyeségei
+     */
     public function stat()
     {
         $model = new karModell();
