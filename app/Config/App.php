@@ -21,7 +21,7 @@ class App extends BaseConfig
     | environments.
     |
     */
-    public $baseURL = 'https://eger76/';
+    public $baseURL = 'https://project.lan/';
 
     /*
     |--------------------------------------------------------------------------
