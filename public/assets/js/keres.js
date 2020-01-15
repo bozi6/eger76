@@ -31,10 +31,10 @@ $(document).ready(function () {
                 $("#szamok").empty();
                 var i = 1; // sorszámok megadása
                 var belepett_szama = 0; // beléptetettek száma
-                var lis = '<li class="list-group-item p-1 bg-dark">';
-                var lisben = '<li class="list-group-item p-1 bg-warning text-dark">';
-                var chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
-                var label = '<label class="form-check-label ml-2" for="felhaszn">';
+                var lis = "<li class='list-group-item p-1 bg-dark'>";
+                var lisben = "<li class='list-group-item p-1 bg-warning text-dark'>";
+                var chkbox = "; <input class='ml-1' type='checkbox' id='felhaszn' name='fellepo[]' value='";
+                var label = "<label class='form-check-label ml-2' for='felhaszn'>";
                 fellepok.forEach(function (fellepo) {
                     var felhid = fellepo.id;
                     if (fellepo.belepett == 1) {
@@ -63,12 +63,12 @@ $(document).ready(function () {
                 beforesend: function () {
                     $("#eddig").addClass('ui-autocomplete-loading');
                 },
-                url: 'getEddig',
+                url: "getEddig",
                 complete: function () {
                     $("#eddig").removeClass('ui-autocomplete-loading');
                 },
                 method: 'post',
-                data: 'nev=' + nev
+                data: "nev=" + nev
             }).done(function (bennvannak) {
                 bennvannak = JSON.parse(bennvannak);
                 $('#eddigtbl').empty();
@@ -92,7 +92,7 @@ $(document).ready(function () {
         $('#egybelep').disabled = true;
         $("#title").autocomplete({
             minLength: 2,
-            source: "index.php/karszalag/getAutocomplete/?",
+            source: "index.php/kezd/getAutocomplete/?",
             select: function (event, ui) {
                 $('[name="sorsz"]').val(ui.item.sorsz);
                 $('[name="nev"]').val(ui.item.label);
