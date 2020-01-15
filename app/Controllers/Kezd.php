@@ -225,6 +225,7 @@ class Kezd extends BaseController
      */
     public function belepes()
     {
+        helper('url');
         $model = new karModell();
         $sorsz = $this->request->getPost('sorsz');
         $befiz = $this->request->getPost('befiz');
@@ -232,7 +233,7 @@ class Kezd extends BaseController
         $megjegy = $this->request->getPost('megjegy');
         $res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
         if ($res == true) {
-            redirect()->to('/kezdes');
+            return redirect()->to('/');
         //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
         } else die('Nem sikerült a belépés...');
     }
