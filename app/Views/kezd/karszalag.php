@@ -2,7 +2,7 @@
 $formdata = '';
 $labeldata = array('class' => 'control-label m-0 font-weight-bold');
 $inputdata = array('class' => 'form-control border-0 bg-info text-warning', 'readonly' => ''); ?>
-<?php echo form_open('karszalag/belepes', $formdata); ?>
+<?php echo form_open('kezd/belepes', $formdata); ?>
 <?php echo form_hidden('sorsz', 'sorsz'); ?>
 <form>
     <div class="form-row">

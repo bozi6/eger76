@@ -84,4 +84,25 @@ class KarModell extends Model
             ->get();
         return $builder->getResult();
     }
+    
+    /**
+     * Beléptet / frissít.
+     * @param  number  $ki belepo sorszáma
+     * @param  number  $mennyit felnőttjegy száma
+     * @param  number  $gymennyit gyerekjegy száma
+     * @param  string  $megjegy megjegyzéshorray
+     * @return boolean TRUE ha minden fasza
+     */
+    public function belepett($ki, $mennyit = 0, $gymennyit = 0, $megjegy)
+    {
+        $bldr = $this->db->table('karszalagok')
+        ->set('szdarab', $mennyit, false)
+        ->set('gyszdarab', $gymennyit, false)
+        ->set('belepett', 1, false)
+        ->set('megjegyzes', $megjegy)
+        ->set('miko', date("Y-m-d H:i:s"))
+        ->where('sorsz', $ki)
+        ->update();
+        return true;
+    }
 }

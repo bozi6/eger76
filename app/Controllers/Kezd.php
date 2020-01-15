@@ -215,5 +215,27 @@ class Kezd extends BaseController
             }
         }
     }
+    
+    /**
+     * A belépés gomb a kezdőoldalon.
+     * @param  number  POST('sorsz') A belépő sorszáma
+     * @param  number  POST('befiz') Vett felnőttjegy száma
+     * @param  number  POST('gybefiz') Vett gyerekjegy száma
+     * @param  number  POST('megjegy') Megjegyzés
+     */
+    public function belepes()
+    {
+        $model = new karModell();
+        $sorsz = $this->request->getPost('sorsz');
+        $befiz = $this->request->getPost('befiz');
+        $gybefiz = $this->request->getPost('gybefiz');
+        $megjegy = $this->request->getPost('megjegy');
+        $res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
+        if ($res == true) {
+            redirect()->to('/kezdes');
+        //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
+        } else die('Nem sikerült a belépés...');
+    }
+    
     //--------------------------------------------------------------------
 }    
