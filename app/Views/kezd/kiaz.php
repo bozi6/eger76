@@ -9,7 +9,7 @@
         <th scope="row">#</th>
         <th scope="row"><?=lang('Kiaz.kiazBelNevCsak',[],$nyelv);?></th>
         <th scope="row"><?=lang('Kiaz.kiazCsopNev',[],$nyelv);?></th>
-        <th style="width: 15%" scope="row" id="beleptd"><?=lang('Kiaz.kiazMegj',[],$nyelv);?></th>
+        <th style="width: 15%" scope="row" id="beleptd"><?=lang('Kiaz.kiazBelDat',[],$nyelv);?></th>
         <th class="d-print-none" scope="row"><?= lang('Kiaz.kiazMegj',[],$nyelv);?></th>
     </tr>
     </thead>
