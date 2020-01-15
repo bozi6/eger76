@@ -3,9 +3,10 @@
 use App\Models\karModell;
 use App\Libraries\karszMenu;
 
+
 class Kezd extends BaseController
 {
-    /*
+    /**
      * A Kezd Controller konstructora
      * Ellenőrzi a session nyelv változót ha nincs akkor magyar lesz az oldal.
      * 
@@ -46,7 +47,8 @@ class Kezd extends BaseController
     /**
      *  Nyelv választás változtató fv. Átírja a session változóban a kiválasztott nyelvet
      * ennyi.
-     * @mi melyik nyelvet választotta a paraszt.
+     * @var $mi string nyelvet választotta a paraszt.
+     * @return null redirect
      */
     public function ls($mi)
     {
@@ -70,6 +72,9 @@ class Kezd extends BaseController
 
     /**
      * Eddig belépett emberkék listázása
+     * @return null
+     *
+     * TODO Eddig belpettek tablazat paginationt kellen.
      */
     public function kiaz()
     {
@@ -93,7 +98,9 @@ class Kezd extends BaseController
 
     /**
      * Csoportos beléptetés lehetővé tévő dolgok összesége
+     * @return null
      */
+    //TODO Csoportos belépés oldalalkat megcsinálni
     public function csoportos()
     {
         $model = new karModell();
@@ -116,7 +123,10 @@ class Kezd extends BaseController
     /**
      * Különböző statisztikák összegyűjtése,
      * hogy az Egér is boldog legyen.
+     *
+     * @return null
      */
+    //TODO Kiegészíteni mindenféle érdekességekkel.
     public function stat()
     {
         $model = new karModell();
@@ -141,7 +151,7 @@ class Kezd extends BaseController
 
     /**
      * eddig.php ben az eddig belépett tagok listázása
-     * @return void
+     * @return string
      */
 
     public function getEddig()
@@ -170,11 +180,12 @@ class Kezd extends BaseController
     /**
      *
      * @term a get kérésből
-     * @return JSON formázott lekérdezés MySQLből
+     * @return string formázott lekérdezés MySQLből
      *
+     * Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
+     * A keres.js fileból hivatkozunk rá.
      */
-    // Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
-    // A keres.js fileból hivatkozunk rá.
+
     public function getAutocomplete()
     {
         $model = new karModell();
@@ -199,7 +210,6 @@ class Kezd extends BaseController
                         'gyszdarab' => $row->gyszdarab,
                         'belepett' => $igen);
                 };
-
                 echo json_encode($arr_result);
                 // itt küldtük vissza a cuccokat JSONként
             }

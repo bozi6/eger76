@@ -2,11 +2,11 @@
 //use CodeIgniter\Controller;
 class Langsw extends BaseController
 {
-    /*
+    /**
     *  Megpróbálunk nyelvet váltani ezzel a kontrollerrel
     * 
-    * @param A bejövő nyelv kódja (hu,en,de,ar)
-    * @return Visszairányít a küldő oldalra.
+    * @param string A bejövő nyelv kódja (hu,en,de,ar)
+    * @return string Visszairányít a küldő oldalra.
     */
     function swl($lang)
     {
