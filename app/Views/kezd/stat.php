@@ -7,4 +7,13 @@
         <div class="col text-center">Összes szereplő: <?= $mindenki ?> fő.</div>
         <div class="col text-right">Nem belépett: <?= $nembe ?> fő.</div>
     </div>
+    <div class="row">
+        <?php foreach ($dupla as $egy): ?>
+            <?= $egy->nev ?> -
+            <?= $egy->db ?> -
+            <?= $egy->szul_datum ?> -
+            <?= $egy->programresz ?><br>
+        <?php endforeach; ?>
+
+    </div>
 </div>

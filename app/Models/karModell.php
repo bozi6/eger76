@@ -95,7 +95,7 @@ class KarModell extends Model
      */
     public function belepett($ki, $mennyit = 0, $gymennyit = 0, $megjegy)
     {
-        $bldr = $this->db->table('karszalagok')
+        $this->db->table('karszalagok')
         ->set('szdarab', $mennyit, false)
         ->set('gyszdarab', $gymennyit, false)
         ->set('belepett', 1, false)
@@ -105,4 +105,16 @@ class KarModell extends Model
         ->update();
         return true;
     }
+
+    /**
+     * Dupla bejegyzések megjelenítése
+     *
+     * @param null bemenet nincs
+     * @return array a duplikált bejegyzések listája
+     */
+    public function dupla()
+        {
+            $bldr =  $this->db->table('duplikalt')->get();
+            return $bldr->getResult();
+        }
 }

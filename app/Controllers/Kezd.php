@@ -136,6 +136,7 @@ class Kezd extends BaseController
                 'menu' => $menu->show_menu(4),
                 'belepettek' => $model->belCount(),
                 'mindenki' => $model->mindCount(),
+                'dupla' => $model->dupla(),
                 'cim' => lang('Stat.statHomepage'),
                 'nyelv' => $_SESSION['site_lang'],
                 'okos' => $this->okos(),
