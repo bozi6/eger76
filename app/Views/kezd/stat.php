@@ -1,21 +1,21 @@
 <div class="container mt-lg-5">
     <div class="row">
-        <div class="col-12 text-center">Statisztikák:</div>
+        <div class="col-12 text-center"><?= lang('Stat.statHomepage',[],$nyelv)?></div>
     </div>
     <div class="row">
-        <div class="col">Eddig beléptek: <?= $belepettek ?> fő.</div>
-        <div class="col text-center">Összes szereplő: <?= $mindenki ?> fő.</div>
-        <div class="col text-right">Nem belépett: <?= $nembe ?> fő.</div>
+        <div class="col"><?= lang('Stat.alreadyEntered',[$belepettek],$nyelv)?></div>
+        <div class="col text-center"><?= lang('Stat.allPerson',[$mindenki],$nyelv)?></div>
+        <div class="col text-right"><?= lang('Stat.nonEntered',[$nembe],$nyelv)?></div>
     </div>
     <div class="row">
-        <div class="col-12 text-center mt-3 bg-primary">Duplikált bejegyzések</div>
+        <div class="col-12 text-center mt-3 bg-primary"><?= lang('Stat.duplicatedEntry',[],$nyelv)?></div>
     </div>
     <div class="row mt-4 bg-primary">
         <div class="col col-md-1">#</div>
-        <div class="col">Név</div>
-        <div class="col">Ismétlődés</div>
-        <div class="col">Születési dátum</div>
-        <div class="col">Programrész</div>
+        <div class="col"><?= lang('Stat.name',[],$nyelv)?></div>
+        <div class="col"><?= lang('Stat.repeat',[],$nyelv)?></div>
+        <div class="col"><?= lang('Stat.bornDate',[],$nyelv)?></div>
+        <div class="col"><?= lang('Stat.Prog',[],$nyelv)?></div>
     </div>
     <?php $i = 1; ?>
     <?php foreach ($dupla as $egy): ?>

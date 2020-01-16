@@ -3,15 +3,17 @@
 			<?= $okos;?></small></div>
 	<div class="d-print-none p-4 text-right bg-dark row">
             <div class="col">
-               <p>Az oldal elkészült <strong>{elapsed_time}</strong> sec alatt.</p>
+               <p><?= lang('Footer.infoPageRender',[timer()->getElapsedTime('render view')],$nyelv) ?></p>
             </div>
+            <?php if(ENVIRONMENT === 'development'):?>
             <div class="col">
-                <p class="text-center">PHP verzió:<?= phpversion() ?></p>
+                <p class="text-center">PHP verzió: <?= phpversion() ?></p>
             </div>
             <div class="col">
                 <p class="text-right">CodeIgniter verzió: <strong><?= CodeIgniter\CodeIgniter::CI_VERSION ?></strong></p>
                 <p>Környezet: <strong> <?= ENVIRONMENT ?></strong></p>
             </div>
+            <?php endif;?>
         
 	</div>
 </div>

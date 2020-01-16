@@ -116,7 +116,7 @@ $(document).ready(function () {
                 bel = "<div class=\"d-inline bg-light text-primary\">" + item.belepett + "</div>";
             }
             return $("<li class=\"list-group-item p-0\">")
-                .append("<div><strong>" + item.label + "</strong> - " + item.szul_datum + "<br>" + item.cegnev + "<br>" + bel + "</div>")
+                .append("<div><strong>" + item.label + "</strong> - " + item.szul_datum + "<br>" + item.cegnev + "<br>" + bel + "</div></li>")
                 .appendTo(ul);
         };
     }

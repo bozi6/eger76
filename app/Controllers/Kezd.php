@@ -16,6 +16,9 @@ class Kezd extends BaseController
     public function __construct()
     {
         $session = \Config\Services::session();
+        $benchmark = \Config\Services::timer();
+        $benchmark->start('render view');
+        
     }
 
     /**
@@ -183,13 +186,13 @@ class Kezd extends BaseController
 
     /**
      *
-     * @term a get kérésből
+     * @param string a get kérésből
      * @return array formázott lekérdezés MySQLből
      *
      * Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
      * A keres.js fileból hivatkozunk rá.
      */
-//TODO átnézni az array -> string konverziüt lehet úgy gyorsab lesz.
+//TODO átnézni az array -> string konverziót lehet úgy gyorsab lesz.
     public function getAutocomplete()
     {
         $model = new karModell();
