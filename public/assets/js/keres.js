@@ -45,7 +45,7 @@ $(document).ready(function () {
                         $('#benvan').append(lis + i + chkbox + felhid + '">' + label + fellepo.nev + '</label></li>')
                         i++;
                     }
-                })
+                });
                 i = i - 1;
                 $('#szamok').append("Összesen: " + i + ", ebből: " + belepett_szama + " belépett." + "<br>Szabad jegyek száma: " + (i - belepett_szama));
             })
@@ -71,15 +71,15 @@ $(document).ready(function () {
                 data: "nev=" + nev
             }).done(function (bennvannak) {
                 bennvannak = JSON.parse(bennvannak);
-                $('#eddigtbl').empty();
+                $("#eddigtbl").empty();
                 bennvannak.forEach(function (bennvan) {
-                    $('#eddigtbl').append('<tr>');
-                    $('#eddigtbl').append('<th scope="row">' + bennvan.id + '.</th>');
-                    $('#eddigtbl').append('<td>' + bennvan.nev + '</td>');
-                    $('#eddigtbl').append('<td>' + bennvan.ceg + '</td>');
-                    $('#eddigtbl').append('<td>' + bennvan.belepett + '</td>');
-                    $('#eddigtbl').append('<td>' + bennvan.megjegyzes + '</td>');
-                    $('#eddigtbl').append('</tr>');
+                    $("#eddigtbl").append("<tr>");
+                    $("#eddigtbl").append("<th scope='row'>" + bennvan.id + ".</th>");
+                    $("#eddigtbl").append("<td>" + bennvan.nev + "</td>");
+                    $("#eddigtbl").append("<td>" + bennvan.ceg + "</td>");
+                    $("#eddigtbl").append("<td>" + bennvan.belepett + "</td>");
+                    $("#eddigtbl").append("<td>" + bennvan.megjegyzes + "</td>");
+                    $("#eddigtbl").append("</tr>");
                 })
             });
         });
@@ -89,24 +89,24 @@ $(document).ready(function () {
     // A kezdőoldal keresőmezője
     if ($("#title").exists()) {
         $("#title").focus();
-        $('#egybelep').disabled = true;
+        $("#egybelep").disabled = true;
         $("#title").autocomplete({
             minLength: 2,
             source: "index.php/kezd/getAutocomplete/?",
             select: function (event, ui) {
-                $('[name="sorsz"]').val(ui.item.sorsz);
-                $('[name="nev"]').val(ui.item.label);
-                $('[name="szul_datum"]').val(ui.item.szul_datum);
-                $('[name="cegnev"]').val(ui.item.cegnev);
-                $('[name="besorolas"]').val(ui.item.besorolas);
-                $('[name="programresz"]').val(ui.item.programresz);
-                $('[name="megjegy"]').val(ui.item.megjegyzes);
-                $('[name="belepett"]').val(ui.item.belepett);
-                $('[name="befiz"]').val(ui.item.szdarab);
-                $('[name="gybefiz"]').val(ui.item.gyszdarab);
-                $('#egybelep').prop('disabled', false);
-                $('#karsz').prop('disabled', false);
-                $('#gykarsz').prop('disabled', false);
+                $("[name='sorsz']").val(ui.item.sorsz);
+                $("[name='nev']").val(ui.item.label);
+                $("[name='szul_datum']").val(ui.item.szul_datum);
+                $("[name='cegnev']").val(ui.item.cegnev);
+                $("[name='besorolas']").val(ui.item.besorolas);
+                $("[name='programresz']").val(ui.item.programresz);
+                $("[name='megjegy']").val(ui.item.megjegyzes);
+                $("[name='belepett']").val(ui.item.belepett);
+                $("[name='befiz']").val(ui.item.szdarab);
+                $("[name='gybefiz']").val(ui.item.gyszdarab);
+                $("#egybelep").prop("disabled", false);
+                $("#karsz").prop("disabled", false);
+                $("#gykarsz").prop("disabled", false);
                 return false;
             }
         }).data("ui-autocomplete")._renderItem = function (ul, item) {

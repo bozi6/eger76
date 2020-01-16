@@ -4,8 +4,6 @@ use CodeIgniter\Model;
 
 class KarModell extends Model
 {
-    protected $table = 'belepettek';
-
     /**
      * Minden bejegyzés megjelenítése.
      *
@@ -19,7 +17,7 @@ class KarModell extends Model
     }
 
     /**
-     * @return query belepett emberkek
+     * @return int|string belepett emberkek
      * A belepett embereket listázza ki.
      */
     public function getKik()
@@ -28,15 +26,8 @@ class KarModell extends Model
         return $query->getResult();
     }
 
-    public function getEgyKik()
-    {
-        $builder = $this->db->table('belepettek')->select();
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
     /**
-     * @return bel statisztikak visszaadása
+     * @return int|string statisztikak visszaadása
      */
     public function belCount()
     {
@@ -45,7 +36,7 @@ class KarModell extends Model
     }
 
     /**
-     * @return bel statisztikak visszaadása
+     * @return mixed statisztikak visszaadása
      */
     public function mindCount()
     {
@@ -84,25 +75,25 @@ class KarModell extends Model
             ->get();
         return $builder->getResult();
     }
-    
+
     /**
      * Beléptet / frissít.
-     * @param  number  $ki belepo sorszáma
-     * @param  number  $mennyit felnőttjegy száma
-     * @param  number  $gymennyit gyerekjegy száma
-     * @param  string  $megjegy megjegyzéshorray
+     * @param  number $ki belepo sorszáma
+     * @param  number $mennyit felnőttjegy száma
+     * @param  number $gymennyit gyerekjegy száma
+     * @param  string $megjegy megjegyzéshorray
      * @return boolean TRUE ha minden fasza
      */
     public function belepett($ki, $mennyit = 0, $gymennyit = 0, $megjegy)
     {
         $this->db->table('karszalagok')
-        ->set('szdarab', $mennyit, false)
-        ->set('gyszdarab', $gymennyit, false)
-        ->set('belepett', 1, false)
-        ->set('megjegyzes', $megjegy)
-        ->set('miko', date("Y-m-d H:i:s"))
-        ->where('sorsz', $ki)
-        ->update();
+            ->set('szdarab', $mennyit, false)
+            ->set('gyszdarab', $gymennyit, false)
+            ->set('belepett', 1, false)
+            ->set('megjegyzes', $megjegy)
+            ->set('miko', date("Y-m-d H:i:s"))
+            ->where('sorsz', $ki)
+            ->update();
         return true;
     }
 
@@ -113,8 +104,8 @@ class KarModell extends Model
      * @return array a duplikált bejegyzések listája
      */
     public function dupla()
-        {
-            $bldr =  $this->db->table('duplikalt')->get();
-            return $bldr->getResult();
-        }
+    {
+        $bldr = $this->db->table('duplikalt')->get();
+        return $bldr->getResult();
+    }
 }

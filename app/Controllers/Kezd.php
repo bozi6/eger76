@@ -9,8 +9,9 @@ class Kezd extends BaseController
     /**
      * A Kezd Controller konstructora
      * Ellenőrzi a session nyelv változót ha nincs akkor magyar lesz az oldal.
-     * 
-     * @return null
+     *
+     * @param  null
+     * @return string
      */
     public function __construct()
     {
@@ -21,7 +22,7 @@ class Kezd extends BaseController
      *
      * Kezdőoldal megjelenítése + ha nyelvet választunk akkor az is.
      *
-     * @ return null
+     * @return null
      */
     public function index()
     {
@@ -143,7 +144,7 @@ class Kezd extends BaseController
                 'nyelv' => $_SESSION['site_lang'],
                 'okos' => $this->okos(),
                 'nembe' => $model->mindCount() - $model->belCount(),
-                'cegek' => $model->getEgyKik(),
+                'cegek' => $model->getKik(),
             ];
         echo view('sablonok/header.php', $data);
         echo view('sablonok/logo.php', $data);
@@ -183,12 +184,12 @@ class Kezd extends BaseController
     /**
      *
      * @term a get kérésből
-     * @return string formázott lekérdezés MySQLből
+     * @return array formázott lekérdezés MySQLből
      *
      * Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
      * A keres.js fileból hivatkozunk rá.
      */
-
+//TODO átnézni az array -> string konverziüt lehet úgy gyorsab lesz.
     public function getAutocomplete()
     {
         $model = new karModell();
@@ -218,13 +219,14 @@ class Kezd extends BaseController
             }
         }
     }
-    
+
     /**
      * A belépés gomb a kezdőoldalon.
      * @param  number  POST('sorsz') A belépő sorszáma
      * @param  number  POST('befiz') Vett felnőttjegy száma
      * @param  number  POST('gybefiz') Vett gyerekjegy száma
      * @param  number  POST('megjegy') Megjegyzés
+     * @return static visszadob az oldalara.
      */
     public function belepes()
     {
@@ -237,9 +239,9 @@ class Kezd extends BaseController
         $res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
         if ($res == true) {
             return redirect()->to('/');
-        //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
+            //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
         } else die('Nem sikerült a belépés...');
     }
-    
+
     //--------------------------------------------------------------------
 }    

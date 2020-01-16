@@ -26,6 +26,6 @@
             <div class="col"><?= $egy->szul_datum ?></div>
             <div class="col"><?= $egy->programresz ?></div>
         </div>
-    <? $i++; ?>
+        <? $i++; ?>
     <?php endforeach; ?>
 </div>

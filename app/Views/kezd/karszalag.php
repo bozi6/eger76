@@ -59,7 +59,7 @@ $inputdata = array('class' => 'form-control border-0 bg-info text-warning', 'rea
         <div class="col-sm-offset-4 col-sm-8">
             <button type="submit" id="egybelep" class="btn btn-success"
                     disabled="disabled"><?= lang('Karszalag.karszBelep'); ?></button>
-            <?= lang('Karszalag.karszBeleptet',[$stat],$nyelv); ?>
+            <?= lang('Karszalag.karszBeleptet', [$stat], $nyelv); ?>
         </div>
     </div>
 </form>
