@@ -112,6 +112,7 @@ class Kezd extends BaseController
             [
                 'menu' => $menu->show_menu(3),
                 'mind' => $model->getMind(),
+                'csoplist' => $model->csoplist(),
                 'stat' => ['benne' => 'nagyon'],
                 'cim' => lang('Csoport.csopHomepage'),
                 'nyelv' => $_SESSION['site_lang'],
@@ -121,6 +122,35 @@ class Kezd extends BaseController
         echo view('sablonok/logo.php', $data);
         echo view('/kezd/csoport', $data);
         echo view('sablonok/footer.php', $data);
+        
+        
+ 
+    }
+
+ /**
+    *Csoport lista változásakor
+    *Feltölti a lista elemeit.
+    *@param	number	POST('csid)
+    *@return	string	JSON fromázott válasz
+    *jQuery<-keres.js
+    */
+    public function csopval()
+    {
+        $request = \Config\Services::request();
+        $nev = $request->getPost('csid');
+        $model = new karModell();
+        $res = $model->csopresz($nev);
+        
+        if (count($res) > 0) {
+            foreach ($res as $row) {
+                $arr_result[] = array(
+                                'id' => $row->sorsz,
+                                'nev' => $row->nev,
+                                'belepett' => $row->belepett
+                                );
+            }
+            echo json_encode($arr_result);
+        }
     }
 
     /**
@@ -245,6 +275,5 @@ class Kezd extends BaseController
             //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
         } else die('Nem sikerült a belépés...');
     }
-
     //--------------------------------------------------------------------
 }    

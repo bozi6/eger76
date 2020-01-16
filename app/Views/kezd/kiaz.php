@@ -16,7 +16,7 @@
     <tbody id="eddigtbl">
     <?php
     $i = 1;
-    foreach($kik as $row){
+    foreach($kik->getResult() as $row){
         echo '<tr class="d-print-table-row">';
         echo '<td><strong>'.$i.'.</strong></td>';
         echo '<td>'.$row->nev.'</td>';

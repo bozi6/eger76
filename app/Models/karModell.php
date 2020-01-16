@@ -22,8 +22,10 @@ class KarModell extends Model
      */
     public function getKik()
     {
-        $query = $this->query('SELECT * FROM belepettek');
-        return $query->getResult();
+        $db = \Config\Database::connect();
+        $bldr = $db->table('belepettek');
+        $bldr->select();
+        return $bldr->get();
     }
 
     /**
@@ -77,6 +79,35 @@ class KarModell extends Model
     }
 
     /**
+    * A csoportok nevenek és id jének lekérdezése
+    * @return string.
+    * a csoportos oldalon van használva.
+    */
+    public function csoplist()
+    {
+        $bldr = $this->db->table('ceglista')
+        ->select('sorsz,cegnev')
+        ->orderBy('cegnev')
+        ->get();
+        return $bldr->getResult();
+    }
+    
+      /**
+    * a kiválasztott csoport szűrése egyénekre
+    * @param  number  a cegnev sorszáma
+    * @return string  a number szerint szűrve
+    */
+    public function csopresz($mit)
+    {
+        $bldr = $this->db->table('karszalagok')
+        ->select('sorsz,nev,cegnev,megjegyzes,szul_datum,besorolas,programresz,belepett,miko')
+        ->where('cegnev', $mit)
+        ->orderBy('nev')
+        ->get();
+        return $bldr->getResult();
+    }
+
+    /**
      * Beléptet / frissít.
      * @param  number $ki belepo sorszáma
      * @param  number $mennyit felnőttjegy száma
@@ -108,4 +139,6 @@ class KarModell extends Model
         $bldr = $this->db->table('duplikalt')->get();
         return $bldr->getResult();
     }
+    
+
 }
