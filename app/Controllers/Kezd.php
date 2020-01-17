@@ -1,16 +1,19 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 use App\Models\karModell;
 use App\Libraries\karszMenu;
 
-
 class Kezd extends BaseController
 {
+
     /**
      * A Kezd Controller konstructora
      * Ellenőrzi a session nyelv változót ha nincs akkor magyar lesz az oldal.
      *
-     * @param  null
+     * @param
+     *            null
      * @return string
      */
     public function __construct()
@@ -18,7 +21,6 @@ class Kezd extends BaseController
         $session = \Config\Services::session();
         $benchmark = \Config\Services::timer();
         $benchmark->start('render view');
-        
     }
 
     /**
@@ -31,14 +33,13 @@ class Kezd extends BaseController
     {
         $model = new karModell();
         $menu = new karszMenu();
-        $data =
-            [
-                'menu' => $menu->show_menu(1),
-                'stat' => $model->belCount(),
-                'cim' => lang('Kezd.kezdHomepage'),
-                'nyelv' => $_SESSION['site_lang'],
-                'okos' => $this->okos(),
-            ];
+        $data = [
+            'menu' => $menu->show_menu(1),
+            'stat' => $model->belCount(),
+            'cim' => lang('Kezd.kezdHomepage'),
+            'nyelv' => $_SESSION['site_lang'],
+            'okos' => $this->okos()
+        ];
 
         helper('form');
         echo view('sablonok/header.php', $data);
@@ -48,8 +49,10 @@ class Kezd extends BaseController
     }
 
     /**
-     *  Nyelv választás változtató fv. Átírja a session változóban a kiválasztott nyelvet
+     * Nyelv választás változtató fv.
+     * Átírja a session változóban a kiválasztott nyelvet
      * ennyi.
+     *
      * @var $mi string nyelvet választotta a paraszt.
      * @return null redirect
      */
@@ -61,9 +64,10 @@ class Kezd extends BaseController
     }
 
     /**
-     * Random bölcsességek kimeríthetelen tárháza. :-)
+     * Random bölcsességek kimeríthetelen tárháza.
+     * :-)
      *
-     * @return string  A  fileból egy véletlen sor
+     * @return string A fileból egy véletlen sor
      */
     public function okos()
     {
@@ -75,24 +79,24 @@ class Kezd extends BaseController
 
     /**
      * Eddig belépett emberkék listázása
-     * @return null
      *
-     * TODO Eddig belpettek tablazat paginationt kellen.
+     * @return null TODO Eddig belpettek tablazat paginationt kellen.
      */
     public function kiaz()
     {
         helper('form');
         $model = new karModell();
         $menu = new karszMenu();
-        $data =
-            [
-                'menu' => $menu->show_menu(2),
-                'kik' => $model->getKik(),
-                'stat' => ['benne' => 'nagyon'],
-                'cim' => lang('Kiaz.kiazHomepage'),
-                'nyelv' => $_SESSION['site_lang'],
-                'okos' => $this->okos(),
-            ];
+        $data = [
+            'menu' => $menu->show_menu(2),
+            'kik' => $model->getKik(),
+            'stat' => [
+                'benne' => 'nagyon'
+            ],
+            'cim' => lang('Kiaz.kiazHomepage'),
+            'nyelv' => $_SESSION['site_lang'],
+            'okos' => $this->okos()
+        ];
         echo view('sablonok/header.php', $data);
         echo view('sablonok/logo.php', $data);
         echo view('/kezd/kiaz', $data);
@@ -101,53 +105,69 @@ class Kezd extends BaseController
 
     /**
      * Csoportos beléptetés lehetővé tévő dolgok összesége
+     *
      * @return null
      */
-    //TODO Csoportos belépés oldalalkat megcsinálni
     public function csoportos()
     {
         $model = new karModell();
         $menu = new karszMenu();
-        $data =
-            [
-                'menu' => $menu->show_menu(3),
-                'mind' => $model->getMind(),
-                'csoplist' => $model->csoplist(),
-                'stat' => ['benne' => 'nagyon'],
-                'cim' => lang('Csoport.csopHomepage'),
-                'nyelv' => $_SESSION['site_lang'],
-                'okos' => $this->okos(),
-            ];
+        $data = [
+            'menu' => $menu->show_menu(3),
+            'mind' => $model->getMind(),
+            'csoplist' => $model->csoplist(),
+            'stat' => [
+                'benne' => 'nagyon'
+            ],
+            'cim' => lang('Csoport.csopHomepage'),
+            'nyelv' => $_SESSION['site_lang'],
+            'okos' => $this->okos()
+        ];
         echo view('sablonok/header.php', $data);
         echo view('sablonok/logo.php', $data);
         echo view('/kezd/csoport', $data);
         echo view('sablonok/footer.php', $data);
-        
-        
- 
     }
 
- /**
-    *Csoport lista változásakor
-    *Feltölti a lista elemeit.
-    *@param	number	POST('csid)
-    *@return	string	JSON fromázott válasz
-    *jQuery<-keres.js
-    */
+    /**
+     * Csoport belépés frissítése a kiválasztott checkboxok alapján.
+     * @param   number POST('csoportok') kiválasztott csoport száma
+     * @param   arrray POST('fellepo') a csportszámhoz tartozó fellépők
+     */
+    public function csopupdt()
+    {
+        $request = \Config\Services::request();
+        $model = new karModell();
+        $csoportok = $request->getPost('csoportok');
+        $fellepo = $request->getPost('fellepo');
+        $model->csoptagbelep($csoportok, $fellepo);
+        $honnan = $this->request->getServer('HTTP_REFERER');
+        return redirect()->to($honnan);
+    }
+    
+    /**
+     * Csoport lista változásakor
+     * Feltölti a lista elemeit.
+     *
+     * @param
+     *            number POST('csid)
+     * @return string JSON fromázott válasz
+     *         jQuery<-keres.js
+     */
     public function csopval()
     {
         $request = \Config\Services::request();
         $nev = $request->getPost('csid');
         $model = new karModell();
         $res = $model->csopresz($nev);
-        
+
         if (count($res) > 0) {
             foreach ($res as $row) {
                 $arr_result[] = array(
-                                'id' => $row->sorsz,
-                                'nev' => $row->nev,
-                                'belepett' => $row->belepett
-                                );
+                    'id' => $row->sorsz,
+                    'nev' => $row->nev,
+                    'belepett' => $row->belepett
+                );
             }
             echo json_encode($arr_result);
         }
@@ -159,38 +179,37 @@ class Kezd extends BaseController
      *
      * @return null
      */
-    //TODO Kiegészíteni mindenféle érdekességekkel.
-    /** TODO a statisztikakanak egy külön táblát csinálni view be amiben benne van az összes emberke,
-     * TODO  az össes belépett , a hátralévő belépők a jegyek száma ( felnőtt/gyerek) meg a karszalag szinek szerinti hülyeségei
+    // TODO Kiegészíteni mindenféle érdekességekkel.
+    /**
+     * TODO a statisztikakanak egy külön táblát csinálni view be amiben benne van az összes emberke,
+     * TODO az össes belépett , a hátralévő belépők a jegyek száma ( felnőtt/gyerek) meg a karszalag szinek szerinti hülyeségei
      */
     public function stat()
     {
         $model = new karModell();
         $menu = new karszMenu();
-        $data =
-            [
-                'menu' => $menu->show_menu(4),
-                'belepettek' => $model->belCount(),
-                'mindenki' => $model->mindCount(),
-                'dupla' => $model->dupla(),
-                'cim' => lang('Stat.statHomepage'),
-                'nyelv' => $_SESSION['site_lang'],
-                'okos' => $this->okos(),
-                'nembe' => $model->mindCount() - $model->belCount(),
-                'cegek' => $model->getKik(),
-            ];
+        $data = [
+            'menu' => $menu->show_menu(4),
+            'belepettek' => $model->belCount(),
+            'mindenki' => $model->mindCount(),
+            'dupla' => $model->dupla(),
+            'cim' => lang('Stat.statHomepage'),
+            'nyelv' => $_SESSION['site_lang'],
+            'okos' => $this->okos(),
+            'nembe' => $model->mindCount() - $model->belCount(),
+            'cegek' => $model->getKik()
+        ];
         echo view('sablonok/header.php', $data);
         echo view('sablonok/logo.php', $data);
         echo view('/kezd/stat', $data);
         echo view('sablonok/footer.php', $data);
-
     }
 
     /**
      * eddig.php ben az eddig belépett tagok listázása
+     *
      * @return string
      */
-
     public function getEddig()
     {
         $request = \Config\Services::request();
@@ -206,9 +225,9 @@ class Kezd extends BaseController
                     'nev' => $row->nev,
                     'ceg' => $row->ceg,
                     'belepett' => $row->miko,
-                    'megjegyzes' => $row->megjegyzes,
+                    'megjegyzes' => $row->megjegyzes
                 );
-                $i++;
+                $i ++;
             }
             echo json_encode($arr_result);
         }
@@ -216,13 +235,14 @@ class Kezd extends BaseController
 
     /**
      *
-     * @param string a get kérésből
+     * @param
+     *            string a get kérésből
      * @return array formázott lekérdezés MySQLből
-     *
-     * Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
-     * A keres.js fileból hivatkozunk rá.
+     *        
+     *         Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
+     *         A keres.js fileból hivatkozunk rá.
      */
-//TODO átnézni az array -> string konverziót lehet úgy gyorsab lesz.
+    // TODO átnézni az array -> string konverziót lehet úgy gyorsab lesz.
     public function getAutocomplete()
     {
         $model = new karModell();
@@ -234,7 +254,8 @@ class Kezd extends BaseController
                         $igen = 'Belépett: ' . $row->miko;
                     } else {
                         $igen = 'Nincs beléptetve.';
-                    };
+                    }
+                    ;
                     $arr_result[] = array(
                         'sorsz' => $row->sorsz,
                         'label' => $row->nev,
@@ -245,8 +266,10 @@ class Kezd extends BaseController
                         'megjegyzes' => $row->megjegyzes,
                         'szdarab' => $row->szdarab,
                         'gyszdarab' => $row->gyszdarab,
-                        'belepett' => $igen);
-                };
+                        'belepett' => $igen
+                    );
+                }
+                ;
                 echo json_encode($arr_result);
                 // itt küldtük vissza a cuccokat JSONként
             }
@@ -255,10 +278,15 @@ class Kezd extends BaseController
 
     /**
      * A belépés gomb a kezdőoldalon.
-     * @param  number  POST('sorsz') A belépő sorszáma
-     * @param  number  POST('befiz') Vett felnőttjegy száma
-     * @param  number  POST('gybefiz') Vett gyerekjegy száma
-     * @param  number  POST('megjegy') Megjegyzés
+     *
+     * @param
+     *            number POST('sorsz') A belépő sorszáma
+     * @param
+     *            number POST('befiz') Vett felnőttjegy száma
+     * @param
+     *            number POST('gybefiz') Vett gyerekjegy száma
+     * @param
+     *            number POST('megjegy') Megjegyzés
      * @return static visszadob az oldalara.
      */
     public function belepes()
@@ -272,8 +300,9 @@ class Kezd extends BaseController
         $res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
         if ($res == true) {
             return redirect()->to('/');
-            //Visszairányít a kezdőoldalra, minden egyéb info nélkül.
-        } else die('Nem sikerült a belépés...');
+            // Visszairányít a kezdőoldalra, minden egyéb info nélkül.
+        } else
+            die('Nem sikerült a belépés...');
     }
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 }    
