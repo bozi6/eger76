@@ -1,5 +1,5 @@
 <?php
 return [
-    'csopHomepage'  => "Einführungszugang",
+	'csopHomepage' => "Einführungszugang",
 ];
 ?>

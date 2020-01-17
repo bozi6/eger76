@@ -20,8 +20,7 @@ use CodeIgniter\Events\Events;
  */
 
 Events::on('pre_system', function () {
-	while (\ob_get_level() > 0)
-	{
+	while (\ob_get_level() > 0) {
 		\ob_end_flush();
 	}
 
@@ -35,8 +34,7 @@ Events::on('pre_system', function () {
 	 * --------------------------------------------------------------------
 	 * If you delete, they will no longer be collected.
 	 */
-	if (ENVIRONMENT !== 'production')
-	{
+	if (ENVIRONMENT !== 'production') {
 		Events::on('DBQuery', 'CodeIgniter\Debug\Toolbar\Collectors\Database::collect');
 		Services::toolbar()->respond();
 	}

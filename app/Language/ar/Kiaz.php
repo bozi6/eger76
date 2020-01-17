@@ -1,4 +1,4 @@
 <?php
 return [
-'kiazHomepage' => 'دخلت بالفعل',
+	'kiazHomepage' => 'دخلت بالفعل',
 ];

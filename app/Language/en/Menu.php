@@ -1,8 +1,8 @@
 <?php
 return [
-'menuKezd'	=>	'Homepage',
-'menuBelep'	=>	'Entered',
-'menuCsop'	=>	'Group enter',
-'menuOssz'	=>	'Stat',
+	'menuKezd' => 'Homepage',
+	'menuBelep' => 'Entered',
+	'menuCsop' => 'Group enter',
+	'menuOssz' => 'Stat',
 ];
 ?>

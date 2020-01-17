@@ -18,27 +18,26 @@ $(document).ready(function () {
     if ($("#csoportok").exists()) {
         $("#csoportok").focus()
         $("#csoportok").change(function () { // a legördülő listában változtatunk
-            var csid = $("#csoportok").val();
+            let csid = $("#csoportok").val();
             // A csoportok lekérdezése ajax-al.
             $.ajax({
                 url: "csopval",
-               method: "post",
-               data: "csid=" + csid
+                method: "post",
+                data: "csid=" + csid
             }).done(function (fellepok) {
-                $("#csupupd").removeClass("disabled");
+                $("#csopupd").removeClass("disabled");
                 fellepok = JSON.parse(fellepok);
                 $("#benvan").empty();
                 $("#szamok").empty();
-                var i = 1; // sorszámok megadása
-                var belepett_szama = 0; // beléptetettek száma
-                var lis = '<li class="list-group-item p-1 bg-dark">';
-                var lisben = '<li class="list-group-item p-1 bg-warning text-dark">';
-                var chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
-                var label = '<label class="form-check-label ml-2" for="felhaszn">';
+                let i = 1; // sorszámok megadása
+                let belepett_szama = 0; // beléptetettek száma
+                const lis = '<li class="list-group-item p-1 bg-dark">';
+                const lisben = '<li class="list-group-item p-1 bg-warning text-dark">';
+                const chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
+                const label = '<label class="form-check-label ml-2" for="felhaszn">';
                 fellepok.forEach(function (fellepo) {
-                    var felhid = fellepo.id;
+                    var felhid = fellepo.sorsz;
                     if (fellepo.belepett == 1) {
-                        
                         $('#benvan').append(lisben + i + chkbox + felhid + '" checked>' + label + fellepo.nev + '</label></li>');
                         belepett_szama++;
                         i++;

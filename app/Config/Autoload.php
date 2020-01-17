@@ -50,9 +50,9 @@ class Autoload extends \CodeIgniter\Config\AutoloadConfig
 		 *   `];
 		 */
 		$psr4 = [
-			'Config'      => APPPATH . 'Config',
+			'Config' => APPPATH . 'Config',
 			APP_NAMESPACE => APPPATH,                // For custom namespace
-			'App'         => APPPATH,                // To ensure filters, etc still found,
+			'App' => APPPATH,                // To ensure filters, etc still found,
 		];
 
 		/**
@@ -77,7 +77,7 @@ class Autoload extends \CodeIgniter\Config\AutoloadConfig
 		// Do Not Edit Below This Line
 		//--------------------------------------------------------------------
 
-		$this->psr4     = array_merge($this->psr4, $psr4);
+		$this->psr4 = array_merge($this->psr4, $psr4);
 		$this->classmap = array_merge($this->classmap, $classmap);
 
 		unset($psr4, $classmap);

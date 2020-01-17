@@ -8,7 +8,6 @@
  *
  * All paths are relative to the project's root folder.
  */
-
 class Paths
 {
 	/*

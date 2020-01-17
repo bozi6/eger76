@@ -1,8 +1,8 @@
 <?php
 return [
-'menuKezd'	=>	'Startseite',
-'menuBelep'	=>	'Kommende Teilnehmer',
-'menuCsop'	=>	'Einführungszugang',
-'menuOssz'	=>	'Statistiken',
+	'menuKezd' => 'Startseite',
+	'menuBelep' => 'Kommende Teilnehmer',
+	'menuCsop' => 'Einführungszugang',
+	'menuOssz' => 'Statistiken',
 ];
 ?>

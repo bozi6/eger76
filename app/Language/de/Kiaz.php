@@ -1,4 +1,4 @@
 <?php
 return [
-'kiazHomepage' => 'Eingegebens',
+	'kiazHomepage' => 'Eingegebens',
 ];

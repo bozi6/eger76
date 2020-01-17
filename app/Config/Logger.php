@@ -90,7 +90,7 @@ class Logger extends BaseConfig
 			/*
 			 * The log levels that this handler will handle.
 			 */
-			'handles'         => [
+			'handles' => [
 				'critical',
 				'alert',
 				'emergency',
@@ -105,7 +105,7 @@ class Logger extends BaseConfig
 			 * Leave this BLANK unless you would like to set something other than the default
 			 * writeable/logs/ directory. Use a full getServer path with trailing slash.
 			 */
-			'path'            => WRITEPATH . 'logs/',
+			'path' => WRITEPATH . 'logs/',
 
 			/*
 			 * The default filename extension for log files. The default 'php' allows for
@@ -114,7 +114,7 @@ class Logger extends BaseConfig
 			 *
 			 * Note: Leaving it blank will default to 'php'.
 			 */
-			'fileExtension'   => 'php',
+			'fileExtension' => 'php',
 
 			/*
 			 * The file system permissions to be applied on newly created log files.

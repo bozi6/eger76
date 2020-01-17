@@ -1,5 +1,5 @@
 <?php
 return [
-'kezdTitle'     =>      'National Tanzenhaus Termin und Messe',
+	'kezdTitle' => 'National Tanzenhaus Termin und Messe',
 ];
 ?>

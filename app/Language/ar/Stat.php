@@ -1,4 +1,4 @@
 <?php
 return [
-    'statHomepage'  =>  'الإحصاء',
+	'statHomepage' => 'الإحصاء',
 ];

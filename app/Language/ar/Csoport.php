@@ -1,5 +1,5 @@
 <?php
 return [
-    'csopHomepage'  => "ﻉﺩﺩ ﻢﻧ ﺵﺍﺭﺎﺗ'",
+	'csopHomepage' => "ﻉﺩﺩ ﻢﻧ ﺵﺍﺭﺎﺗ'",
 ];
 ?>

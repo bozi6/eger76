@@ -1,5 +1,5 @@
 <?php
 return [
-    'csopHomepage'  => "Group Enter",
+	'csopHomepage' => "Group Enter",
 ];
 ?>
