@@ -1,12 +1,12 @@
 <div class="container pt-4  bg-info">
-	<div class="shadow d-print-none row bg-dark text-light p-2">
-		<div class="col-sm-2">
+	<div class="shadow d-print-none row bg-dark text-light p-2" id="logo">
+		<div class="col-sm-2" id="block">
 			<a href="<?php echo base_url(); ?>">
 				<img width="91" height="79" id="thtlogo" alt="thtlog19"
 					 src="<?php echo base_url('images/tht_logo.svg'); ?>">
 			</a>
 		</div>
-		<div class="col-sm-10">
+		<div class="col-sm-10" id="cim">
 			<h4>
 				<?= lang("Logo.logoCim", [], $nyelv); ?>
 			</h4>

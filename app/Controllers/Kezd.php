@@ -6,6 +6,7 @@ use App\Models\karModell;
 use App\Libraries\karszMenu;
 use CodeIgniter\HTTP\RedirectResponse;
 use Config\Services;
+use http\Env\Response;
 
 class Kezd extends BaseController
 {
@@ -54,7 +55,7 @@ class Kezd extends BaseController
 	 * Random bölcsességek kimeríthetelen tárháza.
 	 * :-)
 	 *
-	 * @return string A fileból egy véletlen sor
+	 * @return string A fileból egy véletlen sort add vissza.
 	 */
 	public function okos()
 	{
@@ -81,7 +82,7 @@ class Kezd extends BaseController
 	/**
 	 * Eddig belépett emberkék listázása
 	 *
-	 * @return null TODO Eddig belpettek tablazat paginationt kellen.
+	 * @return null TODO Eddig belpettek tablazat paginationt kellene.
 	 */
 	public function kiaz()
 	{
@@ -130,8 +131,7 @@ class Kezd extends BaseController
 
 	/**
 	 * Csoport belépés frissítése a kiválasztott checkboxok alapján.
-	 * @param number POST('csoportok') kiválasztott csoport száma
-	 * @param arrray POST('fellepo') a csportszámhoz tartozó fellépők
+	 * @param Response POST('fellepo') a csportszámhoz tartozó fellépők
 	 * @return RedirectResponse
 	 */
 	public function csopupdt()
@@ -194,16 +194,16 @@ class Kezd extends BaseController
 		$model = new karModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' 		=> $menu->show_menu(4),
+			'menu' 			=> $menu->show_menu(4),
 			'belepettek' 	=> $model->belCount(),
-			'mindenki' 	=> $model->mindCount(),
-			'dupla' 	=> $model->dupla(),
-			'cim' 		=> lang('Stat.statHomepage'),
-			'nyelv' 	=> $_SESSION['site_lang'],
-			'okos' 		=> $this->okos(),
-			'nembe' 	=> $model->mindCount() - $model->belCount(),
-			'cegek' 	=> $model->getKik(),
-			'jsoldal'	=>	'stat',
+			'mindenki' 		=> $model->mindCount(),
+			'dupla' 		=> $model->dupla(),
+			'cim' 			=> lang('Stat.statHomepage'),
+			'nyelv' 		=> $_SESSION['site_lang'],
+			'okos' 			=> $this->okos(),
+			'nembe' 		=> $model->mindCount() - $model->belCount(),
+			'cegek' 		=> $model->getKik(),
+			'jsoldal'		=>	'stat',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
@@ -281,14 +281,10 @@ class Kezd extends BaseController
 	/**
 	 * A belépés gomb a kezdőoldalon.
 	 *
-	 * @param
-	 *            number POST('sorsz') A belépő sorszáma
-	 * @param
-	 *            number POST('befiz') Vett felnőttjegy száma
-	 * @param
-	 *            number POST('gybefiz') Vett gyerekjegy száma
-	 * @param
-	 *            number POST('megjegy') Megjegyzés
+	 * @param number POST('sorsz') A belépő sorszáma
+	 * @param number POST('befiz') Vett felnőttjegy száma
+	 * @param number POST('gybefiz') Vett gyerekjegy száma
+	 * @param number POST('megjegy') Megjegyzés
 	 * @return RedirectResponse
 	 */
 	public function belepes()

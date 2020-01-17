@@ -2,8 +2,6 @@ $.fn.exists = function () {
     return this.length !== 0;
 };
 
-
-
 /**
  *
  * A csoportos belépésnél a legördülő listában
@@ -12,11 +10,11 @@ $.fn.exists = function () {
  *
  */
 $(document).ready(function () {
-    // csoportos beléptetés legördülő lista.
-    if ($("#csoportok").exists()) {
-        $("#csoportok").focus()
-        $("#csoportok").change(function () { // a legördülő listában változtatunk
-            let csid = $("#csoportok").val();
+    const $csoportok = $("#csoportok");
+    if ($csoportok.exists()) {
+        $csoportok.focus();
+        $csoportok.change(function () { // a legördülő listában változtatunk
+            let csid = $csoportok.val();
             // A csoportok lekérdezése ajax-al.
             $.ajax({
                 url: "csopval",

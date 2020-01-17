@@ -15,31 +15,33 @@ $(document).ready(function () {
         }
     });
     // Az eddig belépett keresőmezője
-    if ($("#eddig").exists()) {
-        $("#eddig").focus();
-        $("#eddig").keyup(function () {
-            const nev = $("#eddig").val();
+    const $eddig = $("#eddig");
+    const $eddigtbl = $("#eddigtbl");
+    if ($eddig.exists()) {
+        $eddig.focus();
+        $eddig.keyup(function () {
+            const nev = $eddig.val();
             $.ajax({
                 beforesend: function () {
-                    $("#eddig").addClass("ui-autocomplete-loading");
+                    $eddig.addClass("ui-autocomplete-loading");
                 },
                 url: "getEddig",
                 complete: function () {
-                    $("#eddig").removeClass("ui-autocomplete-loading");
+                    $eddig.removeClass("ui-autocomplete-loading");
                 },
                 method: "post",
                 data: "nev=" + nev
             }).done(function (bennvannak) {
                 bennvannak = JSON.parse(bennvannak);
-                $("#eddigtbl").empty();
+                $eddigtbl.empty();
                 bennvannak.forEach(function (bennvan) {
-                    $("#eddigtbl").append("<tr>");
-                    $("#eddigtbl").append("<th scope='row'>" + bennvan.id + ".</th>");
-                    $("#eddigtbl").append("<td>" + bennvan.nev + "</td>");
-                    $("#eddigtbl").append("<td>" + bennvan.ceg + "</td>");
-                    $("#eddigtbl").append("<td>" + bennvan.belepett + "</td>");
-                    $("#eddigtbl").append("<td>" + bennvan.megjegyzes + "</td>");
-                    $("#eddigtbl").append("</tr>");
+                    $eddigtbl.append("<tr>");
+                    $eddigtbl.append("<th scope='row'>" + bennvan.id + ".</th>");
+                    $eddigtbl.append("<td>" + bennvan.nev + "</td>");
+                    $eddigtbl.append("<td>" + bennvan.ceg + "</td>");
+                    $eddigtbl.append("<td>" + bennvan.belepett + "</td>");
+                    $eddigtbl.append("<td>" + bennvan.megjegyzes + "</td>");
+                    $eddigtbl.append("</tr>");
                 });
             });
         });

@@ -3,7 +3,7 @@ class karszMenu
 {
 	/** Fenti menüsor
 	 * @param number  Melyik oldalon vagyunk
-	 * @return array  A menü html-t adja Visszaadja
+	 * @return string  A menü html-t adja Visszaadja
 	 */
 	public function show_menu($hol)
 	{
@@ -23,5 +23,3 @@ class karszMenu
 		return implode("\n", $menu);
 	}
 }
-
-;

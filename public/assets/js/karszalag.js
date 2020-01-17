@@ -3,9 +3,15 @@ $.fn.exists = function () {
 };
 
 $(document).ready(function () {
+    const $title = $("#title");
+    $("#logo").click(function(){
+        $("#block").fadeToggle( "fast", "linear" );
+        $("#cim").fadeToggle( "fast", "linear" );
+    });
+
     // A kezdőoldal keresőmezője
-    if ($("#title").exists()) {
-        $("#title").focus();
+    if ($title.exists()) {
+        $title.focus();
         $("#egybelep").disabled = true;
         $("#title").autocomplete({
             minLength: 2,
