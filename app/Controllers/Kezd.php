@@ -40,7 +40,8 @@ class Kezd extends BaseController
 			'stat' => $model->belCount(),
 			'cim' => lang('Kezd.kezdHomepage'),
 			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos()
+			'okos' => $this->okos(),
+			'jsoldal'	=> 'karszalag'
 		];
 		helper('form');
 		echo view('sablonok/header.php', $data);
@@ -95,7 +96,8 @@ class Kezd extends BaseController
 			],
 			'cim' => lang('Kiaz.kiazHomepage'),
 			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos()
+			'okos' => $this->okos(),
+			'jsoldal'	=>	'kiaz',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
@@ -113,11 +115,12 @@ class Kezd extends BaseController
 		$model = new karModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' => $menu->show_menu(3),
-			'csoplist' => $model->csoplist(),
-			'cim' => lang('Csoport.csopHomepage'),
-			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos()
+			'menu' 		=> 	$menu->show_menu(3),
+			'csoplist' 	=> 	$model->csoplist(),
+			'cim' 		=> 	lang('Csoport.csopHomepage'),
+			'nyelv' 	=> 	$_SESSION['site_lang'],
+			'okos' 		=> 	$this->okos(),
+			'jsoldal'	=>	'csoport',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
@@ -191,15 +194,16 @@ class Kezd extends BaseController
 		$model = new karModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' => $menu->show_menu(4),
-			'belepettek' => $model->belCount(),
-			'mindenki' => $model->mindCount(),
-			'dupla' => $model->dupla(),
-			'cim' => lang('Stat.statHomepage'),
-			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos(),
-			'nembe' => $model->mindCount() - $model->belCount(),
-			'cegek' => $model->getKik()
+			'menu' 		=> $menu->show_menu(4),
+			'belepettek' 	=> $model->belCount(),
+			'mindenki' 	=> $model->mindCount(),
+			'dupla' 	=> $model->dupla(),
+			'cim' 		=> lang('Stat.statHomepage'),
+			'nyelv' 	=> $_SESSION['site_lang'],
+			'okos' 		=> $this->okos(),
+			'nembe' 	=> $model->mindCount() - $model->belCount(),
+			'cegek' 	=> $model->getKik(),
+			'jsoldal'	=>	'stat',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
