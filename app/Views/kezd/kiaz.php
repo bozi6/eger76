@@ -17,15 +17,22 @@
 	<tbody id="eddigtbl">
 	<?php
 	$i = 1;
-	foreach ($kik->getResult() as $row) {
+	foreach ($kik as $row) {
 		echo '<tr class="d-print-table-row">';
 		echo '<td><strong>' . $i . '.</strong></td>';
-		echo '<td>' . $row->nev . '</td>';
-		echo '<td>' . $row->ceg . '</td>';
-		echo '<td>' . $row->miko . '</td>';
-		echo '<td class="d-print-none">' . $row->megjegyzes . '</td>';
+		echo '<td>' . $row['nev'] . '</td>';
+		echo '<td>' . $row['ceg'] . '</td>';
+		echo '<td>' . $row['miko'] . '</td>';
+		echo '<td class="d-print-none">' . $row['megjegyzes'] . '</td>';
 		echo '</tr>';
 		$i++;
 	}; ?>
 	</tbody>
 </table>
+<div class="row">
+	<div class="col-12">
+		<?= $pager->links('gr1','tanci_full'); ?>
+	</div>
+
+</div>
+

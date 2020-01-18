@@ -7,7 +7,7 @@ $inputdata = array('class' => 'form-control border-0 bg-info text-warning', 'rea
 <form>
 	<div class="form-row">
 		<div class="form-group col-md-4">
-			<?php echo form_label(lang('Karszalag.karszNev', [], $nyelv), 'title', $labeldata); ?>
+			<?php echo form_label(lang('Karszalag.karszNev', [], $nyelv), 'label', $labeldata); ?>
 			<input type="text" name="nev" class="form-control" id="title"
 				   placeholder="<?= lang('Karszalag.karszBelnev', [], $nyelv) ?>">
 		</div>

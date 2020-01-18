@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\karModell;
+use App\Models\kikModell;
 use App\Libraries\karszMenu;
 use CodeIgniter\HTTP\RedirectResponse;
 use Config\Services;
@@ -37,11 +38,11 @@ class Kezd extends BaseController
 		$model = new karModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' => $menu->show_menu(1),
-			'stat' => $model->belCount(),
-			'cim' => lang('Kezd.kezdHomepage'),
-			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos(),
+			'menu' 		=> $menu->show_menu(1),
+			'stat' 		=> $model->belCount(),
+			'cim' 		=> lang('Kezd.kezdHomepage'),
+			'nyelv' 	=> $_SESSION['site_lang'],
+			'okos' 		=> $this->okos(),
 			'jsoldal'	=> 'karszalag'
 		];
 		helper('form');
@@ -87,17 +88,15 @@ class Kezd extends BaseController
 	public function kiaz()
 	{
 		helper('form');
-		$model = new karModell();
+		$model = new kikModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' => $menu->show_menu(2),
-			'kik' => $model->getKik(),
-			'stat' => [
-				'benne' => 'nagyon'
-			],
-			'cim' => lang('Kiaz.kiazHomepage'),
-			'nyelv' => $_SESSION['site_lang'],
-			'okos' => $this->okos(),
+			'menu' 		=> $menu->show_menu(2),
+			'kik'		=> $model->paginate(20,'gr1'), // a paginationhoz hogy betöltődjön a saját template meg kell adni egy groupot
+			'pager'		=> $model->pager,
+			'cim'		=> lang('Kiaz.kiazHomepage'),
+			'nyelv'		=> $_SESSION['site_lang'],
+			'okos'		=> $this->okos(),
 			'jsoldal'	=>	'kiaz',
 		];
 		echo view('sablonok/header.php', $data);
@@ -254,23 +253,13 @@ class Kezd extends BaseController
 			$result = $model->kereses($_GET['term']);
 			if (count($result) > 0) {
 				foreach ($result as $row) {
-					if ($row->belepett == 1) {
-						$igen = 'Belépett: ' . $row->miko;
+					if ($row['belepett'] == 1) {
+						$row = array_replace($row,array('belepett' => 'Belépett: ' . $row['miko']));
 					} else {
-						$igen = 'Nincs beléptetve.';
+						$row = array_replace($row, array('belepett' => 'Nincs belépve'));
+						//$igen = 'Nincs beléptetve.';
 					}
-					$arr_result[] = array(
-						'sorsz' => $row->sorsz,
-						'label' => $row->nev,
-						'szul_datum' => $row->szul_datum,
-						'cegnev' => $row->cegnev,
-						'besorolas' => $row->besorolas,
-						'programresz' => $row->programresz,
-						'megjegyzes' => $row->megjegyzes,
-						'szdarab' => $row->szdarab,
-						'gyszdarab' => $row->gyszdarab,
-						'belepett' => $igen
-					);
+					$arr_result[] = $row;
 				}
 				echo json_encode($arr_result);
 				// itt küldtük vissza a cuccokat JSONként

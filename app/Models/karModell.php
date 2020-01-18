@@ -12,9 +12,8 @@ class KarModell extends Model
 	 */
 	public function getMind()
 	{
-		$query = $this->db->query('SELECT * from karszalagok limit 2');
-		$sor = $query->getResult();
-		return $sor;
+		$query = $this->db->query("SELECT * FROM karszalagok LIMIT 2");
+		return $query->getResult();
 	}
 
 	/**
@@ -34,8 +33,7 @@ class KarModell extends Model
 	 */
 	public function belCount()
 	{
-		$bel = $this->db->table('belepettek')->countAll();
-		return $bel;
+		return $this->db->table('belepettek')->countAll();
 	}
 
 	/**
@@ -43,8 +41,7 @@ class KarModell extends Model
 	 */
 	public function mindCount()
 	{
-		$bel = $this->db->table('mindenki')->countAll();
-		return $bel;
+		return $this->db->table('mindenki')->countAll();
 	}
 
 	/**
@@ -76,7 +73,7 @@ class KarModell extends Model
 			//$this->db->group_by('cegnev');
 			->limit(7)
 			->get();
-		return $builder->getResult();
+		return $builder->getResultArray();
 	}
 
 	/**
@@ -96,7 +93,7 @@ class KarModell extends Model
 	/**
 	 * a kiválasztott csoport szűrése egyénekre
 	 * @param number  a cegnev sorszáma
-	 * @return string  a number szerint szűrve
+	 * @return array
 	 */
 	public function csopresz($mit)
 	{
