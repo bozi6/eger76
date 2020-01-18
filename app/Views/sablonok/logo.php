@@ -8,9 +8,9 @@
 		</div>
 		<div class="col-sm-10" id="cim">
 			<h4>
-				<?= lang("Logo.logoCim", [], $nyelv); ?>
+				<?= lang("Logo.logoCim"); ?>
 			</h4>
-			Mai dátum: <?= date("Y-m-d H:i"); ?>
+			<?= lang("Logo.logoDatum").date("Y-m-d H:i"); ?>
 		</div>
 	</div>
 	<div class="row d-print-none">

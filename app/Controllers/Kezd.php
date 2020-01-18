@@ -22,7 +22,7 @@ class Kezd extends BaseController
 	 */
 	public function __construct()
 	{
-		$session = Services::session();
+//		$session = Services::session();
 		$benchmark = Services::timer();
 		$benchmark->start('render view');
 	}
@@ -279,17 +279,23 @@ class Kezd extends BaseController
 	public function belepes()
 	{
 		helper('url');
-		$model = new karModell();
-		$sorsz = $this->request->getPost('sorsz');
-		$befiz = $this->request->getPost('befiz');
-		$gybefiz = $this->request->getPost('gybefiz');
-		$megjegy = $this->request->getPost('megjegy');
-		$res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
-		if ($res == true) {
-			return redirect()->to('/');
-			// Visszairányít a kezdőoldalra, minden egyéb info nélkül.
-		} else
-			die('Nem sikerült a belépés...');
+		$bel = $this->request->getPost('belepett');
+		if($bel === 'Nincs belépve') {
+			$model = new karModell();
+			$sorsz = $this->request->getPost('sorsz');
+			$befiz = $this->request->getPost('befiz');
+			$gybefiz = $this->request->getPost('gybefiz');
+			$megjegy = $this->request->getPost('megjegy');
+			$res = $model->belepett($sorsz, $befiz, $gybefiz, $megjegy);
+			if ($res == true) {
+				return redirect()->to('/');
+				// Visszairányít a kezdőoldalra, minden egyéb info nélkül.
+			} else
+				die('Nem sikerült a belépés...');
+		}
+		else{
+			die('Már belépett a paraszt');
+		}
 	}
 	// --------------------------------------------------------------------
 }

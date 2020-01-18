@@ -23,7 +23,6 @@ $(document).ready(function () {
         $("#title").autocomplete({
             minLength: 2,
             delay: 300,
-            autoFocus: true,
             source: "index.php/kezd/getAutocomplete/?",
             select: function (event, ui) {
                 $("[name='sorsz']").val(ui.item.sorsz);

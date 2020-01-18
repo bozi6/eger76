@@ -18,7 +18,7 @@ $(document).ready(function () {
     const $eddig = $("#eddig");
     const $eddigtbl = $("#eddigtbl");
     if ($eddig.exists()) {
-        $eddig.focus();
+        //$eddig.focus();
         $eddig.keyup(function () {
             const nev = $eddig.val();
             $.ajax({

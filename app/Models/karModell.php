@@ -22,7 +22,7 @@ class KarModell extends Model
 	 */
 	public function getKik()
 	{
-		$db = Database::connect();
+		//$db = Database::connect();
 		$bldr = $db->table('belepettek');
 		$bldr->select();
 		return $bldr->get();
@@ -62,7 +62,7 @@ class KarModell extends Model
 	/**
 	 * Az autocomplete kereső lekérdezése a keres.js fileból
 	 * @param string  névtöredék
-	 * @return string  a névtöredéknek megfelelő nevek listája LIKE
+	 * @return array  a névtöredéknek megfelelő nevek listája LIKE
 	 */
 	public function kereses($mit)
 	{
@@ -160,7 +160,7 @@ class KarModell extends Model
 	}
 
 	/**
-	* 
+	*
 	* a kiválasztott csoport beléptetése
 	*/
 	public function csopbelepes($num)
