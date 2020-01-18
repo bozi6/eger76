@@ -4,10 +4,9 @@ $.fn.exists = function () {
 
 $(document).ready(function () {
     const $title = $("#title");
-    $("#logo").click(function(){
-        $("#block").fadeToggle( "fast", "linear" );
-        $("#cim").fadeToggle( "fast", "linear" );
-    });
+    $("#logo").hover(function(){
+        $("#cim").css( "color", "red" );
+    },function(){ $("#cim").css("color", "white")});
 
     // A kezdőoldal keresőmezője
     if ($title.exists()) {
