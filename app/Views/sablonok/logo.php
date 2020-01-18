@@ -10,6 +10,7 @@
 			<h4>
 				<?= lang("Logo.logoCim", [], $nyelv); ?>
 			</h4>
+			Mai dátum: <?= date("Y-m-d H:i"); ?>
 		</div>
 	</div>
 	<div class="row d-print-none">

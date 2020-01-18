@@ -97,7 +97,7 @@ class Kezd extends BaseController
 			'cim'		=> lang('Kiaz.kiazHomepage'),
 			'nyelv'		=> $_SESSION['site_lang'],
 			'okos'		=> $this->okos(),
-			'jsoldal'	=>	'kiaz',
+			'jsoldal'	=> 'kiaz',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
@@ -145,7 +145,7 @@ class Kezd extends BaseController
 	/**
 	 * Csoport lista változásakor
 	 * Feltölti a lista elemeit. a
-	 * 	 csoport szonosítójából a nevekkel
+	 * csoport szonosítójából a nevekkel
 	 * @param  number POST('csid)
 	 * @return string JSON fromázott válasz
 	 *         jQuery<-keres.js
@@ -194,7 +194,7 @@ class Kezd extends BaseController
 		$menu = new karszMenu();
 		$data = [
 			'menu' 			=> $menu->show_menu(4),
-			'belepettek' 	=> $model->belCount(),
+			'belepettek' 		=> $model->belCount(),
 			'mindenki' 		=> $model->mindCount(),
 			'dupla' 		=> $model->dupla(),
 			'cim' 			=> lang('Stat.statHomepage'),

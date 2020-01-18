@@ -8,7 +8,7 @@ class KikModell extends Model
 	protected $table = 'belepettek';
 
 	/**
-	 * @return int|string belepett emberkek
+	 * @return object belepett emberkek
 	 * A belepett embereket listázza ki.
 	 */
 	public function getKik()

@@ -116,8 +116,9 @@ class KarModell extends Model
 			foreach ($kik as $row) {
 				$this->db->table('karszalagok')
 				->set('belepett', 1, false)
-					->where('sorsz', $row)
-					->update();
+				->set('miko', date("Y-m-d H:i:s"))
+				->where('sorsz', $row)
+				->update();
 			}
 			return true;
 		} else {
@@ -158,10 +159,15 @@ class KarModell extends Model
 		return $bldr->getResult();
 	}
 
+	/**
+	* 
+	* a kiválasztott csoport beléptetése
+	*/
 	public function csopbelepes($num)
 	{
 		$this->db->table('karszalagok')
 		->set('belepett', 1)
+		->set('miko', date("Y-m-d H:i:s"))
 		->where('cegnev', $num)
 		->update();
 		return true;

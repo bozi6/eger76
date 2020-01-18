@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-12 text-center mt-3 bg-primary"><?= lang('Stat.duplicatedEntry', [], $nyelv) ?></div>
 	</div>
-	<div class="row mt-4 bg-primary">
+	<div class="row mt-0 bg-primary">
 		<div class="col col-md-1">#</div>
 		<div class="col"><?= lang('Stat.name', [], $nyelv) ?></div>
 		<div class="col"><?= lang('Stat.repeat', [], $nyelv) ?></div>

@@ -1,5 +1,8 @@
 <?php
 return [
-	'csopHomepage' => "Einführungszugang",
+	'csopHomepage' => 'Einführungszugang',
+	'csopCsopvalaszt' => 'Gruppeauswähl',
+	'csopKivEnter' => 'Einreise von Kandidaten',
+	'csopTeljBelep' => 'ganzer Gruppeneintrag',
 ];
 ?>
