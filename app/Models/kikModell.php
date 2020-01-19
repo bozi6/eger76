@@ -8,12 +8,12 @@ class KikModell extends Model
 	protected $table = 'belepett';
 
 	/**
-	 * @return array|null belepett emberkek
+	 * @return \CodeIgniter\Database\ResultInterface belepett emberkek
 	 * A belepett embereket listázza ki.
 	 */
 	public function getKik()
 	{
-		return $this->findAll();
+		return $this->get();
 	}
 
 	/**
@@ -34,7 +34,8 @@ class KikModell extends Model
 	{
 		$builder = $this->db->table($this->table)
 			->like('nev', $mi)
-			->orderBy('nev');
+			->orderBy('nev')
+			->limit(10);
 		$query = $builder->get();
 		return $query->getResult();
 	}

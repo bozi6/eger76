@@ -36,14 +36,6 @@ class KarModell extends Model
 		return $this->db->table('belepettek')->countAll();
 	}
 
-	/**
-	 * @return mixed statisztikak visszaadása
-	 */
-	public function mindCount()
-	{
-		return $this->db->table('mindenki')->countAll();
-	}
-
 
 	/**
 	 * Az autocomplete kereső lekérdezése a keres.js fileból
@@ -101,10 +93,10 @@ class KarModell extends Model
 		if ($kik != null) {
 			foreach ($kik as $row) {
 				$this->db->table('karszalagok')
-				->set('belepett', 1, false)
-				->set('miko', date("Y-m-d H:i:s"))
-				->where('sorsz', $row)
-				->update();
+					->set('belepett', 1, false)
+					->set('miko', date("Y-m-d H:i:s"))
+					->where('sorsz', $row)
+					->update();
 			}
 			return true;
 		} else {
@@ -134,28 +126,16 @@ class KarModell extends Model
 	}
 
 	/**
-	 * Dupla bejegyzések megjelenítése
 	 *
-	 * @param null bemenet nincs
-	 * @return array a duplikált bejegyzések listája
+	 * a kiválasztott csoport beléptetése
 	 */
-	public function dupla()
-	{
-		$bldr = $this->db->table('duplikalt')->get();
-		return $bldr->getResult();
-	}
-
-	/**
-	*
-	* a kiválasztott csoport beléptetése
-	*/
 	public function csopbelepes($num)
 	{
 		$this->db->table('karszalagok')
-		->set('belepett', 1)
-		->set('miko', date("Y-m-d H:i:s"))
-		->where('cegnev', $num)
-		->update();
+			->set('belepett', 1)
+			->set('miko', date("Y-m-d H:i:s"))
+			->where('cegnev', $num)
+			->update();
 		return true;
 	}
 }

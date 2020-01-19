@@ -1,4 +1,3 @@
-
 <div class="form-group col-md-12">
 	<?php $arg = ['class' => 'd-print-none control-label m-0']; ?>
 	<?php echo form_label(lang('Kiaz.kiazNev', [], $nyelv), 'eddig', $arg); ?>:
@@ -19,7 +18,7 @@
 	<?php
 	foreach ($kik as $row) :?>
 		<tr>
-			<td><strong><?= $row['Id']; ?></strong></td>
+			<th scope="col"><strong><?= $row['Id']; ?></strong></th>
 			<td><?= $row['nev'] ?></td>
 			<td><?= $row['ceg'] ?></td>
 			<td><?= $row['miko'] ?></td>
@@ -32,6 +31,5 @@
 	<div class="col-11" id="pager">
 		<?= $pager->links('gr1', 'tanci_full'); ?>
 	</div>
-
 </div>
 

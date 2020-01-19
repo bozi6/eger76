@@ -34,11 +34,4 @@
 			</li>
 		</ul>
 	</div>
-	<div class="row p-3">
-		<div class="col-sm-12 text-center text-light">
-			<h3 class="text-light">
-				<?= $cim; ?>
-			</h3>
-		</div>
-	</div>
-	<?php echo $menu; ?>
+	<?= $menu; ?>

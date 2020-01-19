@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\karModell;
 use App\Models\kikModell;
+use App\Models\statModell;
 use App\Libraries\karszMenu;
 use CodeIgniter\HTTP\RedirectResponse;
 use Config\Services;
@@ -35,15 +36,14 @@ class Kezd extends BaseController
 	 */
 	public function index()
 	{
-		$model = new karModell();
+		$model = new kikModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' 		=> $menu->show_menu(1),
-			'stat' 		=> $model->belCount(),
-			'cim' 		=> lang('Kezd.kezdHomepage'),
-			'nyelv' 	=> $_SESSION['site_lang'],
-			'okos' 		=> $this->okos(),
-			'jsoldal'	=> 'karszalag'
+			'menu' => $menu->show_menu(1),
+			'stat' => $model->getbelCount(),
+			'nyelv' => $_SESSION['site_lang'],
+			'okos' => $this->okos(),
+			'jsoldal' => 'karszalag'
 		];
 		helper('form');
 		echo view('sablonok/header.php', $data);
@@ -91,14 +91,13 @@ class Kezd extends BaseController
 		$model = new kikModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' 		=> $menu->show_menu(2),
-			'kik'		=> $model->paginate(20,'gr1'), // a paginationhoz hogy betöltődjön a saját template meg kell adni egy groupot
-			'mennyi'	=> $model->getBelCount(),
-			'pager'		=> $model->pager,
-			'cim'		=> lang('Kiaz.kiazHomepage'),
-			'nyelv'		=> $_SESSION['site_lang'],
-			'okos'		=> $this->okos(),
-			'jsoldal'	=> 'kiaz',
+			'menu' => $menu->show_menu(2),
+			'kik' => $model->paginate(10, 'gr1'), // a paginationhoz hogy betöltődjön a saját template meg kell adni egy groupot
+			'mennyi' => $model->getBelCount(),
+			'pager' => $model->pager,
+			'nyelv' => $_SESSION['site_lang'],
+			'okos' => $this->okos(),
+			'jsoldal' => 'kiaz',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
@@ -118,7 +117,6 @@ class Kezd extends BaseController
 		$data = [
 			'menu' 		=> 	$menu->show_menu(3),
 			'csoplist' 	=> 	$model->csoplist(),
-			'cim' 		=> 	lang('Csoport.csopHomepage'),
 			'nyelv' 	=> 	$_SESSION['site_lang'],
 			'okos' 		=> 	$this->okos(),
 			'jsoldal'	=>	'csoport',
@@ -172,7 +170,7 @@ class Kezd extends BaseController
 	{
 		$model = new karModell();
 		$res = $model->csopbelepes($num);
-		if($res = true){
+		if ($res == true) {
 			return redirect()->to('/kezd/csoportos');
 		}
 	}
@@ -191,19 +189,17 @@ class Kezd extends BaseController
 	 */
 	public function stat()
 	{
-		$model = new karModell();
+		$model = new statModell();
 		$menu = new karszMenu();
 		$data = [
-			'menu' 			=> $menu->show_menu(4),
-			'belepettek' 	=> $model->belCount(),
-			'mindenki' 		=> $model->mindCount(),
-			'dupla' 		=> $model->dupla(),
-			'cim' 			=> lang('Stat.statHomepage'),
-			'nyelv' 		=> $_SESSION['site_lang'],
-			'okos' 			=> $this->okos(),
-			'nembe' 		=> $model->mindCount() - $model->belCount(),
-			'cegek' 		=> $model->getKik(),
-			'jsoldal'		=>	'stat',
+			'menu' => $menu->show_menu(4),
+			'belepettek' => $model->getbelCount(),
+			'mindenki' => $model->mindCount(),
+			'dupla' => $model->dupla(),
+			'nyelv' => $_SESSION['site_lang'],
+			'okos' => $this->okos(),
+			'nembe' => $model->mindCount() - $model->getbelCount(),
+			'jsoldal' => 'stat',
 		];
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
