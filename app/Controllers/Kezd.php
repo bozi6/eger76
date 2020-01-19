@@ -151,9 +151,9 @@ class Kezd extends BaseController
 	 */
 	public function csopval()
 	{
+		$model = new karModell();
 		$request = Services::request();
 		$nev = $request->getPost('csid'); // a csid a csoport azonosító amit megkaptunk a keres.js fileból.
-		$model = new karModell();
 		$res = $model->csopresz($nev);
 		if (count($res) > 0) {
 			return json_encode($res);

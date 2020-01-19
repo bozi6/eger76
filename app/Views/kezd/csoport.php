@@ -24,11 +24,10 @@
 					class="fas fa-angle-double-right"> <?= lang('Csoport.csopTeljBelep'); ?></span></a>
 		</div>
 	</div>
-	<div class="row ml-3" id="szamok"></div>
 	<div class="row mt-4 col-sm">
 		<ul class="list-group pl-3 col-m-4"
-			style="height: 500px; display: flex; flex-direction: column; flex-wrap: wrap"
-			id="benvan">
+			style="height: 500px; display: flex; flex-direction: column; flex-wrap: wrap" id="benvan">
 		</ul>
 	</div>
+	<div class="row ml-3" id="szamok"></div>
 </form>

@@ -2,6 +2,7 @@ $.fn.exists = function () {
     return this.length !== 0;
 };
 
+
 /**
  *
  * A csoportos belépésnél a legördülő listában
@@ -27,11 +28,12 @@ $(document).ready(function () {
                 $("#szamok").empty();
                 let i = 1; // sorszámok megadása
                 let belepett_szama = 0; // beléptetettek száma
-                const lis = '<li class="list-group-item p-1 bg-dark">';
-                const lisben = '<li class="list-group-item p-1 bg-warning text-dark">';
                 const chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
                 const label = '<label class="form-check-label ml-2" for="felhaszn">';
+                console.log(fellepok);
                 fellepok.forEach(function (fellepo) {
+                    let lis = '<li class="list-group-item p-1 bg-dark" title="Belépett: '+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
+                    let lisben = '<li class="list-group-item p-1 bg-warning text-dark" title=" Belépett:'+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
                     var felhid = fellepo.sorsz;
                     if (fellepo.belepett == 1) {
                         $('#benvan').append(lisben + i + chkbox + felhid + '" checked>' + label + fellepo.nev + '</label></li>');
@@ -49,5 +51,4 @@ $(document).ready(function () {
             $("#csopgomb").attr("href", "csopbel/" + csid);
         });
     }
-
 });
