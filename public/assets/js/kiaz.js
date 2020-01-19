@@ -2,7 +2,7 @@ $.fn.exists = function () {
     return this.length !== 0;
 };
 
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("#eddigtablazat").tablesorter({
         theme: "metro-dark",
         sortLocaleCompare: true,
@@ -14,6 +14,8 @@ $(document).ready(function () {
             }
         }
     });
+
+ */
     // Az eddig belépett keresőmezője
     const $eddig = $("#eddig");
     const $eddigtbl = $("#eddigtbl");
@@ -34,9 +36,10 @@ $(document).ready(function () {
             }).done(function (bennvannak) {
                 bennvannak = JSON.parse(bennvannak);
                 $eddigtbl.empty();
+                console.log(bennvannak);
                 bennvannak.forEach(function (bennvan) {
                     $eddigtbl.append("<tr>");
-                    $eddigtbl.append("<th scope='row'>" + bennvan.id + ".</th>");
+                    $eddigtbl.append("<td><strong>" + bennvan.id + ".</strong></td>");
                     $eddigtbl.append("<td>" + bennvan.nev + "</td>");
                     $eddigtbl.append("<td>" + bennvan.ceg + "</td>");
                     $eddigtbl.append("<td>" + bennvan.belepett + "</td>");
@@ -47,4 +50,4 @@ $(document).ready(function () {
         });
     }
 
-});
+//});

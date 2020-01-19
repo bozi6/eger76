@@ -93,6 +93,7 @@ class Kezd extends BaseController
 		$data = [
 			'menu' 		=> $menu->show_menu(2),
 			'kik'		=> $model->paginate(20,'gr1'), // a paginationhoz hogy betöltődjön a saját template meg kell adni egy groupot
+			'mennyi'	=> $model->getBelCount(),
 			'pager'		=> $model->pager,
 			'cim'		=> lang('Kiaz.kiazHomepage'),
 			'nyelv'		=> $_SESSION['site_lang'],
@@ -194,7 +195,7 @@ class Kezd extends BaseController
 		$menu = new karszMenu();
 		$data = [
 			'menu' 			=> $menu->show_menu(4),
-			'belepettek' 		=> $model->belCount(),
+			'belepettek' 	=> $model->belCount(),
 			'mindenki' 		=> $model->mindCount(),
 			'dupla' 		=> $model->dupla(),
 			'cim' 			=> lang('Stat.statHomepage'),
@@ -218,18 +219,17 @@ class Kezd extends BaseController
 	public function getEddig()
 	{
 		$request = Services::request();
-		$model = new karModell();
+		$model = new kikModell();
 		$nev = $request->getVar('nev');
 		$result = $model->get_belepok($nev);
-
 		if (count($result) > 0) {
 			$i = 1;
 			foreach ($result as $row) {
 				$arr_result[] = array(
-					'id' => $i,
-					'nev' => $row->nev,
-					'ceg' => $row->ceg,
-					'belepett' => $row->miko,
+					'id' 		=> $row->Id,
+					'nev' 		=> $row->nev,
+					'ceg' 		=> $row->ceg,
+					'belepett' 	=> $row->miko,
 					'megjegyzes' => $row->megjegyzes
 				);
 				$i++;

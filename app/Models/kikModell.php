@@ -5,14 +5,38 @@ use CodeIgniter\Model;
 
 class KikModell extends Model
 {
-	protected $table = 'belepettek';
+	protected $table = 'belepett';
 
 	/**
-	 * @return object belepett emberkek
+	 * @return array|null belepett emberkek
 	 * A belepett embereket listázza ki.
 	 */
 	public function getKik()
 	{
 		return $this->findAll();
 	}
+
+	/**
+	 * @return number A belépett táblában lévő emberkék számát adja meg.
+	 */
+	public function getBelCount()
+	{
+		return $this->countAllResults();
+	}
+
+	/**
+	 * a már belépettek között keresgél név szerint
+	 *
+	 * @param string $mi a belepo neve
+	 * @return  array Visszaadja a belepett nepeket
+	 */
+	public function get_belepok($mi)
+	{
+		$builder = $this->db->table($this->table)
+			->like('nev', $mi)
+			->orderBy('nev');
+		$query = $builder->get();
+		return $query->getResult();
+	}
+
 }

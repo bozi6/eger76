@@ -1,10 +1,11 @@
+
 <div class="form-group col-md-12">
 	<?php $arg = ['class' => 'd-print-none control-label m-0']; ?>
 	<?php echo form_label(lang('Kiaz.kiazNev', [], $nyelv), 'eddig', $arg); ?>:
 	<input type="text" name="nev" id="eddig" class="form-control d-print-none"
 		   placeholder="<?= lang('Kiaz.kiazBelNevCsak', [], $nyelv); ?>">
 </div>
-<table class="d-print-table table-md tablesorter" id="eddigtablazat">
+<table class="table-dark table-striped table-sm" id="eddigtablazat">
 	<thead>
 	<tr class="d-print-table-row header">
 		<th scope="row">#</th>
@@ -16,22 +17,20 @@
 	</thead>
 	<tbody id="eddigtbl">
 	<?php
-	$i = 1;
-	foreach ($kik as $row) {
-		echo '<tr class="d-print-table-row">';
-		echo '<td><strong>' . $i . '.</strong></td>';
-		echo '<td>' . $row['nev'] . '</td>';
-		echo '<td>' . $row['ceg'] . '</td>';
-		echo '<td>' . $row['miko'] . '</td>';
-		echo '<td class="d-print-none">' . $row['megjegyzes'] . '</td>';
-		echo '</tr>';
-		$i++;
-	}; ?>
+	foreach ($kik as $row) :?>
+		<tr>
+			<td><strong><?= $row['Id']; ?></strong></td>
+			<td><?= $row['nev'] ?></td>
+			<td><?= $row['ceg'] ?></td>
+			<td><?= $row['miko'] ?></td>
+			<td><?= $row['megjegyzes'] ?></td>
+		</tr>
+	<?php endforeach; ?>
 	</tbody>
 </table>
 <div class="row">
-	<div class="col-12">
-		<?= $pager->links('gr1','tanci_full'); ?>
+	<div class="col-11" id="pager">
+		<?= $pager->links('gr1', 'tanci_full'); ?>
 	</div>
 
 </div>

@@ -41,6 +41,7 @@ $(document).ready(function () {
                 return false;
             }
         }).data("ui-autocomplete")._renderItem = function (ul, item) {
+            
             let bel = "";
             if (item.belepett === "Nincs belépve") {
                 bel = "<div class=\"d-inline bg-light text-danger \">Nincs belépve.</div>";

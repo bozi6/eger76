@@ -22,7 +22,7 @@ class KarModell extends Model
 	 */
 	public function getKik()
 	{
-		//$db = Database::connect();
+		$db = Database::connect();
 		$bldr = $db->table('belepettek');
 		$bldr->select();
 		return $bldr->get();
@@ -44,20 +44,6 @@ class KarModell extends Model
 		return $this->db->table('mindenki')->countAll();
 	}
 
-	/**
-	 * a már belépettek között keresgél név szerint
-	 *
-	 * @param string $mi a belepo neve
-	 * @return  array Visszaadja a belepett nepeket
-	 */
-	public function get_belepok($mi)
-	{
-		$builder = $this->db->table('belepettek')
-			->like('nev', $mi)
-			->orderBy('nev');
-		$query = $builder->get();
-		return $query->getResult();
-	}
 
 	/**
 	 * Az autocomplete kereső lekérdezése a keres.js fileból
