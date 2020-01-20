@@ -1,21 +1,17 @@
-<?php
-
-
-namespace App\Models;
+<?php namespace App\Models;
 
 use CodeIgniter\Model;
 
 
 class statModell extends Model
 {
-	protected $table = 'belepett';
 
 	/**
 	 * @return number A belépett táblában lévő emberkék számát adja meg.
 	 */
 	public function getBelCount()
 	{
-		return $this->countAllResults();
+		return $this->db->table('belepett')->countAllResults();
 	}
 
 	/**
@@ -23,7 +19,6 @@ class statModell extends Model
 	 */
 	public function mindCount()
 	{
-		$this->table = 'mindenki';
 		return $this->db->table('mindenki')->countAll();
 	}
 
@@ -35,8 +30,19 @@ class statModell extends Model
 	 */
 	public function dupla()
 	{
-		$this->table = 'duplikalt';
+	//	$this->table = 'duplikalt';
 		$bldr = $this->db->table('duplikalt')->get();
 		return $bldr->getResult();
 	}
+	
+	public function duplareszlet()
+	{
+	    $db      = \Config\Database::connect();
+	    $bldr = $this->db->table('karszalagok')
+	    ->select('karszalagok.sorsz,karszalagok.nev,karszalagok.szul_datum,karszalagok.programresz')
+	    ->join('duplikalt','duplikalt.nev = karszalagok.nev')
+	    ->orderBy('karszalagok.nev','ASC')
+	    ->get();
+	    return $bldr->getResult();
+	 }
 }

@@ -32,14 +32,14 @@ $(document).ready(function () {
                 const label = '<label class="form-check-label ml-2" for="felhaszn">';
                 console.log(fellepok);
                 fellepok.forEach(function (fellepo) {
-                    let lis = '<li class="list-group-item p-1 bg-dark" title="Belépett: '+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
-                    let lisben = '<li class="list-group-item p-1 bg-warning text-dark" title=" Belépett:'+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
                     var felhid = fellepo.sorsz;
                     if (fellepo.belepett == 1) {
+                    	let lisben = '<li class="list-group-item p-1 bg-warning text-dark" title="Belépett: '+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
                         $('#benvan').append(lisben + i + chkbox + felhid + '" checked>' + label + fellepo.nev + '</label></li>');
                         belepett_szama++;
                         i++;
                     } else {
+                    	let lis = '<li class="list-group-item p-1 bg-dark" title="Programrész: '+fellepo.programresz+'\nMég nem lépett be.">';
                         $('#benvan').append(lis + i + chkbox + felhid + '">' + label + fellepo.nev + '</label></li>');
                         i++;
                     }

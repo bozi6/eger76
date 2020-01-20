@@ -22,10 +22,10 @@
 		<div class="row bg-secondary">
 			<div class="col col-md-1"><?= $i ?>;</div>
 			<div class="col"><?= $egy->nev ?></div>
-			<div class="col"><?= $egy->db ?></div>
+			<!-- <div class="col"><?//= $egy->db ?></div> -->
 			<div class="col"><?= $egy->szul_datum ?></div>
 			<div class="col"><?= $egy->programresz ?></div>
 		</div>
-		<? $i++; ?>
+		<?php $i++; ?>
 	<?php endforeach; ?>
 </div>
