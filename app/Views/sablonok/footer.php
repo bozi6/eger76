@@ -11,7 +11,7 @@
 			</div>
 			<div class="col">
 				<p class="text-right">CodeIgniter verzió: <strong><?= CodeIgniter\CodeIgniter::CI_VERSION ?></strong>
-				<br>Környezet: <strong> <?= ENVIRONMENT ?></strong></p>
+					<br>Környezet: <strong> <?= ENVIRONMENT ?></strong></p>
 			</div>
 		<?php endif; ?>
 
@@ -20,12 +20,12 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="<?php echo base_url('/vendor/components/jquery/jquery.js'); ?>"></script>
-<script src="<?php echo base_url('/vendor/components/jqueryui/jquery-ui.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/popper.js'); ?>"></script>
-<script src="<?php echo base_url('/vendor/twbs/bootstrap/dist/js/bootstrap.js'); ?>"></script>
-<script src="<?php echo base_url('/vendor/mottie/tablesorter/dist/js/jquery.tablesorter.js'); ?>"></script>
-<script src="<?php echo base_url('/vendor/mottie/tablesorter/dist/js/jquery.tablesorter.widgets.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/'.$jsoldal.'.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/jquery/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/jquery-ui/jquery-ui.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/popper/popper.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/bootstrap/js/bootstrap.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/tablesorter/js/jquery.tablesorter.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/tablesorter/js/jquery.tablesorter.widgets.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/js/' . $jsoldal . '.js'); ?>"></script>
 </body>
 </html>
