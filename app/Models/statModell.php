@@ -30,6 +30,9 @@ class statModell extends Model
 	 */
 	public function dupla()
 	{
+        // ide a duplikált táblának ezt kéne tartalmaznia:
+        // select count(*) db, nev from karszalagok group by nev having db > 1 order by db;
+        // és 168 az eredmény.
 		//	$this->table = 'duplikalt';
 		$bldr = $this->db->table('duplikalt')->get();
 		return $bldr->getResult();

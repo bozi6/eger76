@@ -13,7 +13,7 @@
 	}
 	?>
 	<link rel="stylesheet" type="text/css"
-		  href="<?php echo base_url('/assets/jquery-ui/jquery-ui.css'); ?>">
+		  href="<?php echo base_url('/assets/jquery-ui/themes/base/jquery-ui.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/css/sajat.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/font-awesome/css/all.css'); ?>">
 	<link rel="stylesheet" media="screen" type="text/css"
