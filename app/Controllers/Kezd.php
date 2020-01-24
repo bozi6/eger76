@@ -84,7 +84,7 @@ class Kezd extends BaseController
 	/**
 	 * Eddig belépett emberkék listázása
 	 *
-	 * @return null TODO Eddig belpettek tablazat paginationt kellene.
+	 * @return null 
 	 */
 	public function kiaz()
 	{
@@ -183,11 +183,7 @@ class Kezd extends BaseController
 	 *
 	 * @return null
 	 */
-	// TODO Kiegészíteni mindenféle érdekességekkel.
-	/**
-	 * TODO a statisztikakanak egy külön táblát csinálni view be amiben benne van az összes emberke,
-	 * TODO az össes belépett , a hátralévő belépők a jegyek száma ( felnőtt/gyerek) meg a karszalag szinek szerinti hülyeségei
-	 */
+
 	public function stat()
 	{
 		$model = new statModell();
@@ -219,13 +215,13 @@ class Kezd extends BaseController
 		helper('form');
         $model = new nowModell();
 		$menu = new karszMenu();
-        
 		$data = [
 			'menu' => $menu->show_menu(5),
 			'nyelv' => $_SESSION['site_lang'],
 			'okos' => $this->okos(),
 			'jsoldal' => 'rogton',
 		];
+        
 		echo view('sablonok/header.php', $data);
 		echo view('sablonok/logo.php', $data);
 		echo view('/kezd/rogton', $data);
@@ -266,7 +262,6 @@ class Kezd extends BaseController
 	 *         Ha beírunk valakit akkor ez hívodik meg a kitöltésre.
 	 *         A keres.js fileból hivatkozunk rá.
 	 */
-	// TODO átnézni az array -> string konverziót lehet úgy gyorsab lesz.
 	public function getAutocomplete()
 	{
 		$model = new karModell();
