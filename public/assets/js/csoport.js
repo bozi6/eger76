@@ -20,7 +20,9 @@ $(document).ready(function () {
             $.ajax({
                 url: "csopval",
                 method: "post",
-                data: "csid=" + csid
+                data: "csid=" + csid,
+                error: function (xhr) {
+                    alert("Nem sikerült a lekérdezés: \n" + xhr.status + " " + xhr.statusText)}
             }).done(function (fellepok) {
                 $("#csopupd").removeClass("disabled");
                 fellepok = JSON.parse(fellepok);
@@ -30,7 +32,6 @@ $(document).ready(function () {
                 let belepett_szama = 0; // beléptetettek száma
                 const chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
                 const label = '<label class="form-check-label ml-2" for="felhaszn">';
-                console.log(fellepok);
                 fellepok.forEach(function (fellepo) {
                     var felhid = fellepo.sorsz;
                     if (fellepo.belepett == 1) {

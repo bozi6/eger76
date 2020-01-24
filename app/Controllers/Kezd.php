@@ -211,13 +211,15 @@ class Kezd extends BaseController
 
 
 	/**
-	 * Ha hirtelen kell sok jegy mert a főnök azt mondja akkor ez jön be.
+	 * Ha hirtelen kell sok jegy, mert a főnök azt mondja akkor ez jön be.
 	 *
 	 */
 	public function rogton()
 	{
-		$model = new nowModell();
+		helper('form');
+        $model = new nowModell();
 		$menu = new karszMenu();
+        
 		$data = [
 			'menu' => $menu->show_menu(5),
 			'nyelv' => $_SESSION['site_lang'],
@@ -297,7 +299,8 @@ class Kezd extends BaseController
 	 */
 	public function belepes()
 	{
-		helper('url');
+		dd($this->request->getPost());
+        helper('url');
 		$bel = $this->request->getPost('belepett');
 		if($bel === 'Nincs belépve') {
 			$model = new karModell();

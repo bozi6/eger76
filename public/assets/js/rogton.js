@@ -4,4 +4,4 @@ $.fn.exists = function () {
 
 $(document).ready(function () {
 
-}
+});
