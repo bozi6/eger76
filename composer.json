@@ -16,13 +16,13 @@
     "components/jqueryui": "^1.12",
     "mottie/tablesorter": "^2.31",
     "twbs/bootstrap": "^4.1",
-    "components/font-awesome": "^5.12"
+    "components/font-awesome": "^5.12",
+    "squizlabs/php_codesniffer": "*"
   },
   "require-dev": {
     "codeigniter4/codeigniter4-standard": "^1.0",
     "mikey179/vfsstream": "1.6.*",
-    "phpunit/phpunit": "^7.0",
-    "squizlabs/php_codesniffer": "^3.3"
+    "phpunit/phpunit": "^7.0"
   },
   "autoload": {
     "psr-4": {
