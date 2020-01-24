@@ -4,5 +4,6 @@ return [
 	'menuBelep' => 'Belépve',
 	'menuCsop' => 'Csoportos belépés',
 	'menuOssz' => 'Összesítés',
+	'menuNow' => 'Jegyet izibe!',
 ];
-?>
+

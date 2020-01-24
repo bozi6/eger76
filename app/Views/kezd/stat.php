@@ -10,22 +10,27 @@
 	<div class="row">
 		<div class="col-12 text-center mt-3 bg-primary"><?= lang('Stat.duplicatedEntry', [], $nyelv) ?></div>
 	</div>
-	<div class="row mt-0 bg-primary">
-		<div class="col col-md-1">#</div>
-		<div class="col"><?= lang('Stat.name', [], $nyelv) ?></div>
-		<div class="col"><?= lang('Stat.repeat', [], $nyelv) ?></div>
-		<div class="col"><?= lang('Stat.bornDate', [], $nyelv) ?></div>
-		<div class="col"><?= lang('Stat.Prog', [], $nyelv) ?></div>
-	</div>
-	<?php $i = 1; ?>
-	<?php foreach ($dupla as $egy): ?>
-		<div class="row bg-secondary">
-			<div class="col col-md-1"><?= $i ?>;</div>
-			<div class="col"><?= $egy->nev ?></div>
-			<!-- <div class="col"><?//= $egy->db ?></div> -->
-			<div class="col"><?= $egy->szul_datum ?></div>
-			<div class="col"><?= $egy->programresz ?></div>
-		</div>
-		<?php $i++; ?>
-	<?php endforeach; ?>
+	<table class="table-dark" id="eddigtablazat">
+		<thead class="bg-primary">
+		<td>#</td>
+		<td><?= lang('Stat.name', [], $nyelv) ?></td>
+		<td><?= lang('Stat.bornDate', [], $nyelv) ?></td>
+		<td><?= lang('Stat.Prog', [], $nyelv) ?></td>
+		</thead>
+		<tbody>
+		<?php $i = 1; ?>
+		<?php if (isset($dupla)) {
+			foreach ($dupla as $egy): ?>
+				<tr class=" bg-secondary">
+					<td><?= $i ?>;</td>
+					<td><?= $egy->nev ?></td>
+					<!-- <div class="col"><? //= $egy->db ?></div> -->
+					<td><?= $egy->szul_datum ?></td>
+					<td><?= $egy->programresz ?></td>
+				</tr>
+				<?php $i++; ?>
+			<?php endforeach;
+		} ?>
+		</tbody>
+	</table>
 </div>

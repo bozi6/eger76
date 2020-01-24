@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\karModell;
 use App\Models\kikModell;
+use App\Models\nowModell;
 use App\Models\statModell;
 use App\Libraries\karszMenu;
 use CodeIgniter\HTTP\RedirectResponse;
@@ -208,6 +209,27 @@ class Kezd extends BaseController
 		echo view('sablonok/footer.php', $data);
 	}
 
+
+	/**
+	 * Ha hirtelen kell sok jegy mert a főnök azt mondja akkor ez jön be.
+	 *
+	 */
+	public function rogton()
+	{
+		$model = new nowModell();
+		$menu = new karszMenu();
+		$data = [
+			'menu' => $menu->show_menu(5),
+			'nyelv' => $_SESSION['site_lang'],
+			'okos' => $this->okos(),
+			'jsoldal' => 'rogton',
+		];
+		echo view('sablonok/header.php', $data);
+		echo view('sablonok/logo.php', $data);
+		echo view('/kezd/rogton', $data);
+		echo view('sablonok/footer.php', $data);
+	}
+
 	/**
 	 * eddig.php ben az eddig belépett tagok listázása
 	 *
@@ -290,9 +312,10 @@ class Kezd extends BaseController
 			} else
 				die('Nem sikerült a belépés...');
 		}
-		else{
-			die('Már belépett a paraszt');
+		else {
+			die('Már belépett.');
 		}
 	}
+
 	// --------------------------------------------------------------------
 }

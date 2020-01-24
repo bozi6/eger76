@@ -14,8 +14,9 @@ class karszMenu
 			'kezd' => '<div class="row d-print-none" id="mymenu"><div class="col-sm-12 text-center p-3">',
 			'1' => $gomb . ' href="' . base_url() . '"><span class="fas fa-home"> ' . lang('Menu.menuKezd', [], $nyelv) . '</span></a>',
 			'2' => $gomb . ' href="' . base_url('kezd/kiaz') . '"><span class="fas fa-sign-in-alt"> ' . lang('Menu.menuBelep') . '</span></a>',
-			'3' => $gomb . ' href="' . base_url('kezd/csoportos') . '"><span class="fas fa-gopuram"> ' . lang('Menu.menuCsop') . '</span></a>',
+			'3' => $gomb . ' href="' . base_url('kezd/csoportos') . '"><span class="fas fa-users"> ' . lang('Menu.menuCsop') . '</span></a>',
 			'4' => $gomb . ' href="' . base_url('kezd/stat') . '"><span class="fas fa-globe-europe"> ' . lang('Menu.menuOssz') . '</span></a>',
+			'5' => $gomb . ' href="' . base_url('kezd/rogton') . '"><span class="fas fa-ticket-alt"> ' . lang('Menu.menuNow') . '</span></a>',
 			'veg' => '</div></div>',
 		);
 		$menu[$hol] = ltrim($menu[$hol], '<a ' . $gomb);

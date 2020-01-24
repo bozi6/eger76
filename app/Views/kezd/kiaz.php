@@ -1,17 +1,17 @@
 <div class="form-group col-md-12">
 	<?php $arg = ['class' => 'd-print-none control-label m-0']; ?>
-	<?php echo form_label(lang('Kiaz.kiazNev', [], $nyelv), 'eddig', $arg); ?>:
+	<?php echo form_label(lang('Kiaz.kiazNev'), 'eddig', $arg); ?>:
 	<input type="text" name="nev" id="eddig" class="form-control d-print-none"
-		   placeholder="<?= lang('Kiaz.kiazBelNevCsak', [], $nyelv); ?>">
+		   placeholder="<?= lang('Kiaz.kiazBelNevCsak'); ?>">
 </div>
 <table class="table-dark table-striped table-sm" id="eddigtablazat">
 	<thead>
 	<tr class="d-print-table-row header">
 		<th scope="row">#</th>
-		<th scope="row"><?= lang('Kiaz.kiazBelNevCsak', [], $nyelv); ?></th>
-		<th scope="row"><?= lang('Kiaz.kiazCsopNev', [], $nyelv); ?></th>
-		<th style="width: 15%" scope="row" id="beleptd"><?= lang('Kiaz.kiazBelDat', [], $nyelv); ?></th>
-		<th class="d-print-none" scope="row"><?= lang('Kiaz.kiazMegj', [], $nyelv); ?></th>
+		<th scope="row"><?= lang('Kiaz.kiazBelNevCsak'); ?></th>
+		<th scope="row"><?= lang('Kiaz.kiazCsopNev'); ?></th>
+		<th style="width: 15%" scope="row" id="beleptd"><?= lang('Kiaz.kiazBelDat'); ?></th>
+		<th class="d-print-none" scope="row"><?= lang('Kiaz.kiazMegj'); ?></th>
 	</tr>
 	</thead>
 	<tbody id="eddigtbl">
