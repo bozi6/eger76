@@ -11,21 +11,21 @@ $inputdata = array('class' => 'form-control border-0 bg-info text-warning', 'rea
             <div class="form-row ml-4">
                 <div class="form-group col-md-4">
                     <?php echo form_label('Név ha van', 'label', $labeldata); ?>
-                    <input type="text" name="nev" class="form-control" id="title"
+                    <input type="text" name="nev" class="form-control" id="name"
 				   placeholder="név/Ismeretlen Szereplő">
                 </div>
             </div>
             <div class="form-row ml-4">
                 <div class="form-group col-md-4">
                     <?php echo form_label('Hány karszalag kell', 'label', $labeldata); ?>
-                    <input type="text" name="karsznum" class="form-control" id="title"
+                    <input type="text" name="karsznum" class="form-control" id="karszalag"
 				   placeholder="karszalag db./0">
                 </div>
             </div>
             <div class="form-row ml-4">
                 <div class="form-group col-md-4">
                     <?php echo form_label('Melyik bagázshoz tartozik', 'label', $labeldata); ?>
-                    <input type="text" name="tarsulat" class="form-control" id="title"
+                    <input type="text" name="tarsulat" class="form-control" id="tarsulat"
 				   placeholder="társulat neve./ZZJegyet izibe társulat.">
                 </div>
             </div>
