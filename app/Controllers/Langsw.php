@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
-//use CodeIgniter\Controller;
-class Langsw extends BaseController
+use CodeIgniter\Controller;
+
+class Langsw extends AlapController
 {
 	/**
 	 *  Megpróbálunk nyelvet váltani ezzel a kontrollerrel

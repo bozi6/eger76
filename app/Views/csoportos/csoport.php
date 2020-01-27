@@ -1,4 +1,4 @@
-<form action="csopupdt" id="csopkeres" method="post">
+<form action="csoportos/csopupdt" id="csopkeres" method="post">
 	<div class="form-group">
 		<select class="form-control" id="csoportok" name="csoportok">
 			<option selected disabled><?= lang('Csoport.csopCsopvalaszt'); ?></option>
@@ -19,7 +19,7 @@
 			</button>
 		</div>
 		<div class="align-right">
-			<a href="<?php echo base_url('kezd/csopbel/'); ?>"
+			<a href="<?php echo base_url('csoportos/csopbel/'); ?>"
 			   class="btn btn-primary btn-sm disabled" id="csopgomb"><span
 					class="fas fa-angle-double-right"> <?= lang('Csoport.csopTeljBelep'); ?></span></a>
 		</div>

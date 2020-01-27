@@ -27,7 +27,7 @@ $.fn.exists = function () {
                 beforesend: function () {
                     $eddig.addClass("ui-autocomplete-loading");
                 },
-                url: "getEddig",
+                url: "belepve/getEddig",
                 complete: function () {
                     $eddig.removeClass("ui-autocomplete-loading");
                 },

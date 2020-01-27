@@ -13,10 +13,10 @@ class karszMenu
 		$menu = array(
 			'kezd' => '<div class="row d-print-none" id="mymenu"><div class="col-sm-12 text-center p-3">',
 			'1' => $gomb . ' href="' . base_url() . '"><span class="fas fa-home"> ' . lang('Menu.menuKezd', [], $nyelv) . '</span></a>',
-			'2' => $gomb . ' href="' . base_url('kezd/kiaz') . '"><span class="fas fa-sign-in-alt"> ' . lang('Menu.menuBelep') . '</span></a>',
-			'3' => $gomb . ' href="' . base_url('kezd/csoportos') . '"><span class="fas fa-users"> ' . lang('Menu.menuCsop') . '</span></a>',
-			'4' => $gomb . ' href="' . base_url('kezd/stat') . '"><span class="fas fa-globe-europe"> ' . lang('Menu.menuOssz') . '</span></a>',
-			'5' => $gomb . ' href="' . base_url('kezd/rogton') . '"><span class="fas fa-ticket-alt"> ' . lang('Menu.menuNow') . '</span></a>',
+			'2' => $gomb . ' href="' . base_url('belepve/') . '"><span class="fas fa-sign-in-alt"> ' . lang('Menu.menuBelep') . '</span></a>',
+			'3' => $gomb . ' href="' . base_url('csoportos/') . '"><span class="fas fa-users"> ' . lang('Menu.menuCsop') . '</span></a>',
+			'4' => $gomb . ' href="' . base_url('stat/') . '"><span class="fas fa-globe-europe"> ' . lang('Menu.menuOssz') . '</span></a>',
+			'5' => $gomb . ' href="' . base_url('rogton/') . '"><span class="fas fa-ticket-alt"> ' . lang('Menu.menuNow') . '</span></a>',
 			'veg' => '</div></div>',
 		);
 		$menu[$hol] = ltrim($menu[$hol], '<a ' . $gomb);

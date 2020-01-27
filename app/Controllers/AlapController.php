@@ -17,7 +17,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class BaseController extends Controller
+class AlapController extends Controller
 {
 
 	/**
@@ -27,7 +27,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = [];
+	protected $helpers = ['form'];
 
 	/**
 	 * Constructor.
@@ -45,6 +45,5 @@ class BaseController extends Controller
 		if (!isset($_SESSION['site_lang'])) {
 			$this->session->set('site_lang', 'hu');
 		}
-
 	}
 }

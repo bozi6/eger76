@@ -18,11 +18,12 @@ $(document).ready(function () {
             let csid = $csoportok.val();
             // A csoportok lekérdezése ajax-al.
             $.ajax({
-                url: "csopval",
+                url: "csoportos/csopval",
                 method: "post",
                 data: "csid=" + csid,
                 error: function (xhr) {
-                    alert("Nem sikerült a lekérdezés: \n" + xhr.status + " " + xhr.statusText)}
+                    alert("Nem sikerült a lekérdezés: \n" + xhr.status + " " + xhr.statusText)
+                }
             }).done(function (fellepok) {
                 $("#csopupd").removeClass("disabled");
                 fellepok = JSON.parse(fellepok);
@@ -49,7 +50,7 @@ $(document).ready(function () {
                 $("#szamok").append("Összesen: " + i + ", ebből: " + belepett_szama + " belépett." + "<br>Szabad jegyek száma: " + (i - belepett_szama));
             });
             $("#csopgomb").removeClass("disabled");
-            $("#csopgomb").attr("href", "csopbel/" + csid);
+            $("#csopgomb").attr("href", "csoportos/csopbel/" + csid);
         });
     }
 });
