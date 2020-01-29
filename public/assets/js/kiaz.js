@@ -36,7 +36,6 @@ $.fn.exists = function () {
             }).done(function (bennvannak) {
                 bennvannak = JSON.parse(bennvannak);
                 $eddigtbl.empty();
-                console.log(bennvannak.length);
                 bennvannak.forEach(function (bennvan) {
                     $eddigtbl.append("<tr>");
                     $eddigtbl.append("<td><strong>" + bennvan.id + ".</strong></td>");

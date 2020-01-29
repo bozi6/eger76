@@ -20,7 +20,7 @@ $(document).ready(function () {
     if ($title.exists()) {
         $title.focus();
         $("#egybelep").disabled = true;
-        $("#title").autocomplete({
+        $title.autocomplete({
             minLength: 2,
             delay: 300,
             source: "index.php/kezd/getAutocomplete/?",
@@ -41,7 +41,6 @@ $(document).ready(function () {
                 return false;
             }
         }).data("ui-autocomplete")._renderItem = function (ul, item) {
-
             let bel = "";
             if (item.belepett === "Nincs belépve") {
                 bel = "<div class=\"d-inline bg-light text-danger \">Nincs belépve.</div>";

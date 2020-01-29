@@ -4,4 +4,5 @@ return [
 	'menuBelep' => 'دخل,',
 	'menuCsop' => 'دخول المجموعة',
 	'menuOssz' => 'إحصائية',
+	'menuNow' => 'ارا ',
 ];

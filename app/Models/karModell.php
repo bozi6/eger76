@@ -22,8 +22,8 @@ class KarModell extends Model
 	 */
 	public function getKik()
 	{
-		$db = Database::connect();
-		$bldr = $db->table('belepettek');
+//		$db = Database::connect();
+		$bldr = $this->db->table('belepettek');
 		$bldr->select();
 		return $bldr->get();
 	}

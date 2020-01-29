@@ -14,6 +14,7 @@
 		<thead class="bg-primary">
 		<td>#</td>
 		<td><?= lang('Stat.name', [], $nyelv) ?></td>
+		<td><?= lang('Stat.repeat') ?></td>
 		<td><?= lang('Stat.bornDate', [], $nyelv) ?></td>
 		<td><?= lang('Stat.Prog', [], $nyelv) ?></td>
 		</thead>
@@ -24,8 +25,9 @@
 				<tr class=" bg-secondary">
 					<td><?= $i ?>;</td>
 					<td><?= $egy->nev ?></td>
+					<td><?= $egy->nevdb ?></td>
 					<!-- <div class="col"><? //= $egy->db ?></div> -->
-					<td><?= $egy->szul_datum ?></td>
+					<td><?= $egy->szd ?></td>
 					<td><?= $egy->programresz ?></td>
 				</tr>
 				<?php $i++; ?>

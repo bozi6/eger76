@@ -106,7 +106,6 @@ class Kezd extends AlapController
 	 */
 	public function belepes()
 	{
-		dd($this->request->getPost());
 		helper('url');
 		$bel = $this->request->getPost('belepett');
 		if ($bel === 'Nincs belépve') {

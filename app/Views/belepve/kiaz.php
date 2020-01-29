@@ -32,4 +32,3 @@
 		<?= $pager->links('gr1', 'tanci_full'); ?>
 	</div>
 </div>
-

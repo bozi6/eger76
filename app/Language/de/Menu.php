@@ -4,5 +4,6 @@ return [
 	'menuBelep' => 'Kommende Teilnehmer',
 	'menuCsop' => 'Einführungszugang',
 	'menuOssz' => 'Statistiken',
+	'menuNow' => 'Karte, Jetzt!',
 ];
 ?>

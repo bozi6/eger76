@@ -40,11 +40,13 @@ class statModell extends Model
 
 	public function duplareszlet()
 	{
-		$bldr = $this->db->table('karszalagok')
+		/*$bldr = $this->db->table('karszalagok')
 			->select('karszalagok.sorsz,karszalagok.nev,karszalagok.szul_datum,karszalagok.programresz')
 			->join('duplikalt', 'duplikalt.nev = karszalagok.nev')
 			->orderBy('karszalagok.nev', 'ASC')
 			->get();
+		return $bldr->getResult();*/
+		$bldr = $this->db->table('azonos_nevuek')->get();
 		return $bldr->getResult();
 	}
 }

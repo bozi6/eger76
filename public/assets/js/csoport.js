@@ -34,7 +34,7 @@ $(document).ready(function () {
                 const chkbox = '; <input class="ml-1" type="checkbox" id="felhaszn" name="fellepo[]" value="';
                 const label = '<label class="form-check-label ml-2" for="felhaszn">';
                 fellepok.forEach(function (fellepo) {
-                    var felhid = fellepo.sorsz;
+                    let felhid = fellepo.sorsz;
                     if (fellepo.belepett == 1) {
                     	let lisben = '<li class="list-group-item p-1 bg-warning text-dark" title="Belépett: '+fellepo.miko+'\nProgramrész: '+fellepo.programresz+'">';
                         $('#benvan').append(lisben + i + chkbox + felhid + '" checked>' + label + fellepo.nev + '</label></li>');
