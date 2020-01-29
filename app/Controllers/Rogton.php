@@ -54,7 +54,6 @@ class Rogton extends AlapController
 		$karsznum = $this->request->getPost('karsznum');
 		$tarsulat = $this->request->getPost('csoportok');
 		$megjegy = $this->request->getPost('megjegy');
-
 		if ($nev === "") {
 			$nev = 'Ismeretlen Szereplő';
 		}
@@ -64,11 +63,6 @@ class Rogton extends AlapController
 		if ($tarsulat === "") {
 			$tarsulat = 1000;
 		}
-		d($this->request->getPost());
-		d($nev);
-		d($tarsulat);
-		d($karsznum);
-		d($megjegy);
 		$data = array();
 		for ($i = 1; $i <= $karsznum; $i++) {
 			$data[$i] = [
@@ -76,10 +70,11 @@ class Rogton extends AlapController
 				'nev' => $nev,
 				'megjegyzes' => $megjegy,
 				'belepett' => 1,
-				'miko' => date('Y-M-d H:i:s'),
+				'miko' => date('Y-m-d H:i:s'),
 			];
 		}
-		d($data);
+		//d($data);
 		//$model->hozzaad($data);
+		return redirect()->to('/rogton/');
 	}
 }
