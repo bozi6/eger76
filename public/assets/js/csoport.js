@@ -12,6 +12,7 @@ $.fn.exists = function () {
  */
 $(document).ready(function () {
     const $csoportok = $("#csoportok");
+    const $csopgomb = $("#csopgomb");
     if ($csoportok.exists()) {
         $csoportok.focus();
         $csoportok.change(function () { // a legördülő listában változtatunk
@@ -20,13 +21,15 @@ $(document).ready(function () {
             $.ajax({
                 url: "csoportos/csopval",
                 method: "post",
+		dataType: "json",
                 data: "csid=" + csid,
                 error: function (xhr) {
-                    alert("Nem sikerült a lekérdezés: \n" + xhr.status + " " + xhr.statusText)
+		    $("#benvan").empty();
+		    $("#szamok").empty();
                 }
             }).done(function (fellepok) {
                 $("#csopupd").removeClass("disabled");
-                fellepok = JSON.parse(fellepok);
+                //fellepok = JSON.parse(fellepok);
                 $("#benvan").empty();
                 $("#szamok").empty();
                 let i = 1; // sorszámok megadása
@@ -47,10 +50,13 @@ $(document).ready(function () {
                     }
                 });
                 i = i - 1;
+		if(belepett_szama == 0) {
+		console.log("Senki nem lépett be");
+		}
                 $("#szamok").append("Összesen: " + i + ", ebből: " + belepett_szama + " belépett." + "<br>Szabad jegyek száma: " + (i - belepett_szama));
             });
-            $("#csopgomb").removeClass("disabled");
-            $("#csopgomb").attr("href", "csoportos/csopbel/" + csid);
+            $csopgomb.removeClass("disabled");
+            $csopgomb.attr("href", "csoportos/csopbel/" + csid);
         });
     }
 });

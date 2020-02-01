@@ -3,5 +3,5 @@ $.fn.exists = function () {
 };
 
 $(document).ready(function () {
-
+ $("button").disabled = true;
 });

@@ -28,9 +28,7 @@ class Rogton extends AlapController
 	 */
 	public function index()
 	{
-		$model = new nowModell();
 		$csopmod = new karModell();
-
 		$menu = new karszMenu();
 		$okos = new okoska();
 		$data = [
@@ -39,6 +37,7 @@ class Rogton extends AlapController
 			'nyelv' => $_SESSION['site_lang'],
 			'okos' => $okos->okos(),
 			'jsoldal' => 'rogton',
+			'kesz' => '&nbsp;',
 		];
 
 		echo view('sablonok/header.php', $data);
@@ -49,7 +48,10 @@ class Rogton extends AlapController
 
 	public function belepes()
 	{
+		$csopmod = new karModell();
 		$model = new nowModell();
+		$okos = new okoska();
+		$menu = new karszMenu(5);
 		$nev = $this->request->getPost('nev');
 		$karsznum = $this->request->getPost('karsznum');
 		$tarsulat = $this->request->getPost('csoportok');
@@ -74,7 +76,22 @@ class Rogton extends AlapController
 			];
 		}
 		//d($data);
-		//$model->hozzaad($data);
-		return redirect()->to('/rogton/');
+		$adatok = [
+			'csoplist' => $csopmod->csoplist(),
+			'menu' => $menu->show_menu(5),
+			'nyelv' => $_SESSION['site_lang'],
+			'okos' => $okos->okos(),
+			'jsoldal' => 'rogton',
+		];
+		if ($model->hozzaad($data) === null)
+		{
+			$adatok['kesz'] = 'Sikerült a belépés!';
+		}
+		else
+			$adatok['kesz'] = 'Gebaßierung van!';
+		echo view('sablonok/header.php', $adatok);
+		echo view('sablonok/logo.php', $adatok);
+		echo view('/rogton/rogton', $adatok);
+		echo view('sablonok/footer.php', $adatok);
 	}
 }
