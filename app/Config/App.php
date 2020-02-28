@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'https://project.lan/';
+	public $baseURL = 'http://localhost:8080/';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ class App extends BaseConfig
 	| should run under for this request.
 	|
 	*/
-	public $defaultLocale = 'hu';
+	public $defaultLocale = 'en';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -88,7 +88,7 @@ class App extends BaseConfig
 	| found, the first locale will be used.
 	|
 	*/
-	public $supportedLocales = ['hu', 'en', 'de', 'ar'];
+	public $supportedLocales = ['en'];
 
 	/*
 	|--------------------------------------------------------------------------
@@ -99,7 +99,7 @@ class App extends BaseConfig
 	| dates with the date helper, and can be retrieved through app_timezone()
 	|
 	*/
-	public $appTimezone = 'Europe/Budapest';
+	public $appTimezone = 'America/Chicago';
 
 	/*
 	|--------------------------------------------------------------------------
@@ -181,12 +181,12 @@ class App extends BaseConfig
 	| except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 	|
 	*/
-	public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
-	public $sessionCookieName = 'ci_session';
-	public $sessionExpiration = 7200;
-	public $sessionSavePath = WRITEPATH . 'session';
-	public $sessionMatchIP = false;
-	public $sessionTimeToUpdate = 300;
+	public $sessionDriver            = 'CodeIgniter\Session\Handlers\FileHandler';
+	public $sessionCookieName        = 'ci_session';
+	public $sessionExpiration        = 7200;
+	public $sessionSavePath          = WRITEPATH . 'session';
+	public $sessionMatchIP           = false;
+	public $sessionTimeToUpdate      = 300;
 	public $sessionRegenerateDestroy = false;
 
 	/*
@@ -204,10 +204,10 @@ class App extends BaseConfig
 	|       'cookie_httponly') will also affect sessions.
 	|
 	*/
-	public $cookiePrefix = '';
-	public $cookieDomain = '';
-	public $cookiePath = '/';
-	public $cookieSecure = false;
+	public $cookiePrefix   = '';
+	public $cookieDomain   = '';
+	public $cookiePath     = '/';
+	public $cookieSecure   = false;
 	public $cookieHTTPOnly = false;
 
 	/*
@@ -243,12 +243,12 @@ class App extends BaseConfig
 	| CSRFRegenerate  = Regenerate token on every submission
 	| CSRFRedirect    = Redirect to previous page with error on failure
 	*/
-	public $CSRFTokenName = 'csrf_test_name';
+	public $CSRFTokenName  = 'csrf_test_name';
 	public $CSRFHeaderName = 'X-CSRF-TOKEN';
 	public $CSRFCookieName = 'csrf_cookie_name';
-	public $CSRFExpire = 7200;
+	public $CSRFExpire     = 7200;
 	public $CSRFRegenerate = true;
-	public $CSRFRedirect = true;
+	public $CSRFRedirect   = true;
 
 	/*
 	|--------------------------------------------------------------------------
@@ -265,5 +265,4 @@ class App extends BaseConfig
 	|   - http://www.w3.org/TR/CSP/
 	*/
 	public $CSPEnabled = false;
-
 }

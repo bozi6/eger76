@@ -55,7 +55,8 @@ class Modules
 	 */
 	public function shouldDiscover(string $alias)
 	{
-		if (!$this->enabled) {
+		if (! $this->enabled)
+		{
 			return false;
 		}
 

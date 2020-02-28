@@ -29,6 +29,6 @@
 </table>
 <div class="row">
 	<div class="col-11" id="pager">
-		<?= $pager->links('gr1', 'tanci_full'); ?>
+		<? echo $pager->links('gr1', 'default_full'); ?>
 	</div>
 </div>
