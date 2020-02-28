@@ -1,5 +1,5 @@
 /*!
- * Font Awesome Free 5.12.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 .fa,
@@ -1195,22 +1195,32 @@ readers do not read off random characters that represent icons */
   content: "\f0c4"; }
 
 .fa-cuttlefish:before {
-  content: "\f38c"; }
+  content: "\f38c";
+}
 
 .fa-d-and-d:before {
-  content: "\f38d"; }
+  content: "\f38d";
+}
 
 .fa-d-and-d-beyond:before {
-  content: "\f6ca"; }
+  content: "\f6ca";
+}
+
+.fa-dailymotion:before {
+  content: "\f952";
+}
 
 .fa-dashcube:before {
-  content: "\f210"; }
+  content: "\f210";
+}
 
 .fa-database:before {
-  content: "\f1c0"; }
+  content: "\f1c0";
+}
 
 .fa-deaf:before {
-  content: "\f2a4"; }
+  content: "\f2a4";
+}
 
 .fa-delicious:before {
   content: "\f1a5"; }
@@ -2236,22 +2246,32 @@ readers do not read off random characters that represent icons */
   content: "\f534"; }
 
 .fa-info:before {
-  content: "\f129"; }
+  content: "\f129";
+}
 
 .fa-info-circle:before {
-  content: "\f05a"; }
+  content: "\f05a";
+}
 
 .fa-instagram:before {
-  content: "\f16d"; }
+  content: "\f16d";
+}
+
+.fa-instagram-square:before {
+  content: "\f955";
+}
 
 .fa-intercom:before {
-  content: "\f7af"; }
+  content: "\f7af";
+}
 
 .fa-internet-explorer:before {
-  content: "\f26b"; }
+  content: "\f26b";
+}
 
 .fa-invision:before {
-  content: "\f7b0"; }
+  content: "\f7b0";
+}
 
 .fa-ioxhost:before {
   content: "\f208"; }
@@ -2635,22 +2655,32 @@ readers do not read off random characters that represent icons */
   content: "\f146"; }
 
 .fa-mitten:before {
-  content: "\f7b5"; }
+  content: "\f7b5";
+}
 
 .fa-mix:before {
-  content: "\f3cb"; }
+  content: "\f3cb";
+}
 
 .fa-mixcloud:before {
-  content: "\f289"; }
+  content: "\f289";
+}
+
+.fa-mixer:before {
+  content: "\f956";
+}
 
 .fa-mizuni:before {
-  content: "\f3cc"; }
+  content: "\f3cc";
+}
 
 .fa-mobile:before {
-  content: "\f10b"; }
+  content: "\f10b";
+}
 
 .fa-mobile-alt:before {
-  content: "\f3cd"; }
+  content: "\f3cd";
+}
 
 .fa-modx:before {
   content: "\f285"; }
@@ -3340,22 +3370,32 @@ readers do not read off random characters that represent icons */
   content: "\f21a"; }
 
 .fa-shipping-fast:before {
-  content: "\f48b"; }
+  content: "\f48b";
+}
 
 .fa-shirtsinbulk:before {
-  content: "\f214"; }
+  content: "\f214";
+}
 
 .fa-shoe-prints:before {
-  content: "\f54b"; }
+  content: "\f54b";
+}
+
+.fa-shopify:before {
+  content: "\f957";
+}
 
 .fa-shopping-bag:before {
-  content: "\f290"; }
+  content: "\f290";
+}
 
 .fa-shopping-basket:before {
-  content: "\f291"; }
+  content: "\f291";
+}
 
 .fa-shopping-cart:before {
-  content: "\f07a"; }
+  content: "\f07a";
+}
 
 .fa-shopware:before {
   content: "\f5b5"; }
