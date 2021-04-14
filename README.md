@@ -1,5 +1,5 @@
-# DanceHouse 2020
+# Táncháztalálkozó 2019
 
-TicketEntering website
-with Codeingiter
+Belépők jegykezelése weboldal
+Codeingiterrel
 https://codeigniter.com/
